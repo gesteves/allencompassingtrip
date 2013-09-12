@@ -1,0 +1,42 @@
+article ul.exif {
+	font-size: 14px;
+	line-height: 1.7142857143;
+	float: left;
+	padding: 0;
+	margin: 0;
+
+	li {
+		list-style-type: none;
+		float: left;
+		display: inline;
+		margin-right: 2px;
+		white-space: nowrap;
+
+		&:before {
+			color: #999;
+		}
+	}
+
+
+	.exif-camera:before {
+		content: "Camera ";
+	}
+	.exif-lens:before {
+		content: "• Lens ";
+	}
+	.exif-film:before {
+		content: "• Film ";
+	}
+	.exif-focal-length:before {
+		content: "• Focal length ";
+	}
+	.exif-aperture:before {
+		content: "• Aperture ";
+	}
+	.exif-exposure:before {
+		content: "• Shutter speed ";
+	}
+	.exif-iso:before {
+		content: "• ISO ";
+	}
+}

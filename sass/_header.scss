@@ -3,20 +3,15 @@ header {
   max-width: 960px;
   margin: 44px auto 24px auto;
   text-align: center;
-  font-family: $garamond;
-  border-bottom: 2px solid $red;
-  padding-bottom: 45px;
   h1 {
     font-weight:300;
-    font-size:48px;
-    letter-spacing: 2px;
+    font-size:24px;
     line-height:1;
     margin:0;
     width:100%;
     float:left;
-    text-transform: uppercase;
     @media (max-width: $x-small) {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
   h2 {
@@ -41,18 +36,5 @@ header {
   a:hover, a:active {
     color:$red;
     border:none;
-  }
-  &:after {
-    content: '★ ★ ★';
-    color: $red;
-    display: block;
-    text-align: center;
-    letter-spacing: 20px;
-    font-size: 12px;
-    margin-top: 15px;
-    float: left;
-    width: 100%;
-    position: relative;
-    left: 10px;
   }
 }

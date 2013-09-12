@@ -7,14 +7,24 @@
       _dc.setUpTweetText();
       _dc.setUpLazyLoad();
       _dc.hideDefaultTags();
+      _dc.setUpMachineTags();
       _dc.initFacebook();
       _dc.initTwitter();
       _dc.initGooglePlus();
       _dc.initAnalytics();
+
+      $window.on('resize', _.throttle(_dc.setImageHeight, 100));
+      $window.trigger('resize');
     }
   };
 
   _dc = {
+    setImageHeight : function () {
+      var photos = $('img.main-photo'),
+          height;
+      height = $window.height() * 0.95;
+      photos.css({ 'max-height' : height + 'px'});
+    },
     setUpTweetText : function () {
       $('article').each(function () {
         var article = $(this),
@@ -26,27 +36,56 @@
       });
     },
     setUpLazyLoad : function () {
-      var photo = $('img.main-photo');
-      photo.show();
-      if ($window.width() > 300) {
-        photo.lazyload({
-          threshold : 200
-        });
+      var photos = $('img.main-photo'),
+          small, photo;
+      
+      if ($window.width() <= 300) {
+        photos.each(function () {
+          photo = $(this);
+          small = photo.attr('data-small');
+          photo.attr('data-original', small);
+        }); 
       }
+      photos.show().lazyload({
+        threshold : 600,
+        effect : 'fadeIn'
+      });
     },
     hideDefaultTags : function () {
       $('a[rel=tag]').each(function() {
         var tag = $(this);
-        var tags = /(washington dc|dc|district of columbia|^washington$|vintage|history)/gi;
+        var tags = /(photography|washington)/gi;
         if (tag.text().match(tags)) {
-          tag.remove();
+          tag.parent().remove();
         }
+      });
+    },
+    setUpMachineTags : function () {
+      $('article').each(function() {
+        var article = $(this),
+            exif = article.find('.exif-camera'),
+            tags = article.find('a[rel=tag]'),
+            tag, text;
+        tags.each(function () {
+          tag = $(this);
+
+          if (tag.text().match(/^film:name/)) {
+            text = tag.text().substring(tag.text().indexOf('=') + 1);
+            exif.after('<li class="exif-film">' + text + '</li>');
+            tag.parent().remove();
+          }
+          if (tag.text().match(/^lens:model/)) {
+            text = tag.text().substring(tag.text().indexOf('=') + 1);
+            exif.after('<li class="exif-lens">' + text + '</li>');
+            tag.parent().remove();
+          }
+        });
       });
     },
     initFacebook : function () {
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '322594371195777', // App ID from the App Dashboard
+          appId      : '107491745959221', // App ID from the App Dashboard
           status     : true, // check the login status upon init?
           cookie     : true, // set sessions cookies to allow your server to access the session?
           xfbml      : true  // parse XFBML tags on this page?
@@ -56,10 +95,12 @@
         FB.Event.subscribe('edge.create', function(targetUrl) {
           window._gaq = window._gaq || [];
           window._gaq.push(['_trackSocial', 'Facebook', 'Like', targetUrl]);
+          window._gaq.push(['_trackEvent', 'Social', 'Facebook : Like', targetUrl]);
         });
         FB.Event.subscribe('edge.remove', function(targetUrl) {
           window._gaq = window._gaq || [];
-          window._gaq.push(['_trackSocial', 'Facebook', 'Like', targetUrl]);
+          window._gaq.push(['_trackSocial', 'Facebook', 'Unlike', targetUrl]);
+          window._gaq.push(['_trackEvent', 'Social', 'Facebook : Unlike', targetUrl]);
         });
 
       };
@@ -88,10 +129,12 @@
                 url = _dc.extractParamFromUri(event.target.src, 'url');
           }
           window._gaq.push(['_trackSocial', 'Twitter', 'Tweet', url]);
+          window._gaq.push(['_trackEvent', 'Social', 'Twitter : Tweet', url]);
         });
         twttr.events.bind('follow', function(event) {
           window._gaq = window._gaq || [];
           window._gaq.push(['_trackSocial', 'Twitter', 'Follow', '@' + event.data.screen_name]);
+          window._gaq.push(['_trackEvent', 'Social', 'Twitter : Follow', '@' + event.data.screen_name]);
         });
       });
     },
@@ -116,7 +159,7 @@
     initAnalytics : function () {
 
       window._gaq = window._gaq || [];
-      window._gaq.push(['_setAccount', 'UA-250261-35']);
+      window._gaq.push(['_setAccount', 'UA-250261-30']);
       window._gaq.push(['_trackPageview']);
 
       (function() {
@@ -142,3 +185,12 @@
   });
 
 })(jQuery);
+
+trackGooglePlus = function (json) {
+  _gaq = _gaq || [];
+  if (json.state === 'on') {
+    _gaq.push(['_trackEvent', 'Social' , 'Google : +1', json.href]);
+  } else {
+    _gaq.push(['_trackEvent', 'Social' , 'Google : -1', json.href]);
+  }
+}
