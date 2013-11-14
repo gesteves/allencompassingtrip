@@ -160,6 +160,7 @@
 
       window._gaq = window._gaq || [];
       window._gaq.push(['_setAccount', 'UA-250261-30']);
+      window._gaq.push(['_setSiteSpeedSampleRate', 100]);
       window._gaq.push(['_trackPageview']);
 
       (function() {
