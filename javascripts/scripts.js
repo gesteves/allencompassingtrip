@@ -190,11 +190,8 @@
     },
     buildMorePhotos : function (json) {
       var template = $('#photo-template').html(),
-          container = $('.more-photos'),
-          photo_container = container.find('.photos');
-
-      photo_container.html(_.template(template, { photos : json.response.posts }));
-      container.fadeIn(100);
+          container = $('.more-photos');
+      container.html(_.template(template, { photos : json.response.posts })).fadeIn(100);
     }
   };
 
