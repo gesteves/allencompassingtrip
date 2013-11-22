@@ -5,3 +5,15 @@
     @content
   }
 }
+
+@mixin columns($count, $gap, $width) {
+	-moz-column-count:$count;
+  -moz-column-gap: $gap;
+  -moz-column-width: $width;
+  -webkit-column-count:$count;
+  -webkit-column-gap: $gap;
+  -webkit-column-width: $width;
+  column-count: $count;
+  column-gap: $gap;
+  column-width: $width;
+}

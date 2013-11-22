@@ -251,5 +251,20 @@
 
 <div id="fb-root"></div>
 
+<script type="text/html" id="photo-template">
+<% _.each(photos, function (photo, key, list) {
+   var photo_url = photo.photos[0].alt_sizes[3].url;
+%>
+  <div class="photo">
+    <a href="<%= photo.post_url %>">
+    <div class="caption">
+      <p><%= photo.caption %></p>
+    </div>
+    <img src="<%= photo_url %>" alt="<%= photo.caption %>" />
+    </a>
+  </div>
+<% }); %>
+</script>
+
 </body>
 </html>

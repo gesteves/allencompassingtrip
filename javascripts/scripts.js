@@ -189,20 +189,12 @@
       }
     },
     buildMorePhotos : function (json) {
-      var url, caption, post_url,
-          img, a,
-          size = $window.width() <= 300 ? 4 : 3;
-          container = $('.more-photos');
+      var template = $('#photo-template').html(),
+          container = $('.more-photos'),
           photo_container = container.find('.photos');
-      _.each(json.response.posts, function(post, index, list) {
-          caption = post.caption;
-          post_url = post.post_url;
-          url = post.photos[0].alt_sizes[size].url;
-          img = $('<img />').attr({ src : url, alt : caption});
-          a = $('<a></a>').attr({ href : post_url, title : caption}).append(img);
-          photo_container.append(a);
-          container.fadeIn(100);
-      });
+
+      photo_container.html(_.template(template, { photos : json.response.posts }));
+      container.fadeIn(100);
     }
   };
 
