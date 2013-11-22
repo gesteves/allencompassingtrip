@@ -13,6 +13,7 @@
       _dc.initGooglePlus();
       _dc.initAnalytics();
       _dc.initAppNet();
+      _dc.fetchMorePhotos();
 
       $window.on('resize', _.throttle(_dc.setImageHeight, 100));
       $window.trigger('resize');
@@ -172,6 +173,36 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+    },
+    fetchMorePhotos : function () {
+      var container = $('.more-photos'),
+          url = 'http://api.tumblr.com/v2/blog/photo.gesteves.com/posts/photo?api_key=DDyXPSYkUDkug5nJIovuLBDMpwSY3MHBS5aIT8NgZrpR7E9hB9&filter=text&jsonp=_dc.buildMorePhotos',
+          script, s;
+      
+      if (container.length > 0) {
+        script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.src = url;
+        s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+      }
+    },
+    buildMorePhotos : function (json) {
+      var url, caption, post_url,
+          img, a,
+          size = $window.width() <= 300 ? 4 : 3;
+          container = $('.more-photos');
+          photo_container = container.find('.photos');
+      _.each(json.response.posts, function(post, index, list) {
+          caption = post.caption;
+          post_url = post.post_url;
+          url = post.photos[0].alt_sizes[size].url;
+          img = $('<img />').attr({ src : url, alt : caption});
+          a = $('<a></a>').attr({ href : post_url, title : caption}).append(img);
+          photo_container.append(a);
+          container.fadeIn(100);
+      });
     }
   };
 
