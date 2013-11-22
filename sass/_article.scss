@@ -3,6 +3,11 @@ article {
   float:left;
   margin: 96px 0;
   position:relative;
+
+  .permalink & {
+    margin-bottom: 0;
+  }
+
   &:first-child {
     margin-top:24px;
   } 
