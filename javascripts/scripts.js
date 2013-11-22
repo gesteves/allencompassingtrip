@@ -12,6 +12,7 @@
       _dc.initTwitter();
       _dc.initGooglePlus();
       _dc.initAnalytics();
+      _dc.initAppNet();
 
       $window.on('resize', _.throttle(_dc.setImageHeight, 100));
       $window.trigger('resize');
@@ -137,6 +138,9 @@
           window._gaq.push(['_trackEvent', 'Social', 'Twitter : Follow', '@' + event.data.screen_name]);
         });
       });
+    },
+    initAppNet : function () {
+      (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));
     },
     initGooglePlus : function () {
       (function() {
