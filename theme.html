@@ -41,6 +41,7 @@
 <link href="http://gesteves-com.s3.amazonaws.com/photoblog/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="//use.typekit.net/dyo6cyj.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<meta name="if:Show Adsense" content="1"/>
 </head>
 <body {block:PermalinkPage}class="permalink"{/block:PermalinkPage}>
 <div class="wrap">
@@ -71,7 +72,7 @@
     <article itemscope itemtype="http://schema.org/Photograph">
     <div class="photo">
     <div class="main">
-    <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://gesteves-com.s3.amazonaws.com/photoblog/images/pixel.gif" alt="{PhotoAlt}" itemprop="image" class="main-photo" /></a>
+    <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://gesteves-com.s3.amazonaws.com/photoblog/images/pixel.gif" alt="{PhotoAlt}" class="main-photo" /></a>
     <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
     </div>
     <div class="description">
@@ -100,6 +101,7 @@
     <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://gesteves-com.s3.amazonaws.com/photoblog/images/pixel.gif" alt="{PhotoAlt}" itemprop="image" class="main-photo" /></a>
     <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
     </div>
+    {block:Caption} 
     <div class="description">
     <div class="caption" itemprop="description">
       <p>{Caption}</p>
@@ -114,6 +116,7 @@
     </ul>
     {/block:Exif}
     </div>
+    {/block:Caption} 
     
     </div>
     {/block:Photos}
@@ -152,11 +155,29 @@
         <li class="reblog">{ReblogButton size="14" color="black"}</li>
         <li class="tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="{Permalink}" data-via="gesteves">Tweet</a></li>
         <li class="plusone"><div class="g-plusone" data-size="medium" data-annotation="none" data-href="{Permalink}" data-callback="trackGooglePlus"></div></li>
-        <li class="fb-like"><div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>
+        <li class="fb-like"><div class="fb-like" data-href="{Permalink}" data-share="true" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>
       </ul>
     </div>
     
     {/block:Date}
+
+    {block:PermalinkPage}
+      {block:IfShowAdsense}
+        <div class="leaderboard">
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Photoblog responsive ad -->
+          <ins class="adsbygoogle photoblog-responsive-ad"
+               style="display:inline-block"
+               data-ad-client="ca-pub-6384133423736330"
+               data-ad-slot="7156210502"></ins>
+          <script>
+          if (!document.referrer.match(/reddit\.com/)) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }
+          </script>
+        </div>
+        {/block:IfShowAdsense}
+      {/block:PermalinkPage}
   
   </article>
   
