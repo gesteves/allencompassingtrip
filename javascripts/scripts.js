@@ -176,7 +176,7 @@
     },
     fetchMorePhotos : function () {
       var container = $('.more-photos'),
-          url = 'http://api.tumblr.com/v2/blog/photo.gesteves.com/posts/photo?api_key=DDyXPSYkUDkug5nJIovuLBDMpwSY3MHBS5aIT8NgZrpR7E9hB9&filter=text&jsonp=_dc.buildMorePhotos',
+          url = 'http://api.tumblr.com/v2/blog/allencompassingtrip.com/posts/photo?api_key=DDyXPSYkUDkug5nJIovuLBDMpwSY3MHBS5aIT8NgZrpR7E9hB9&filter=text&jsonp=_dc.buildMorePhotos',
           script, s;
       
       if (container.length > 0) {
