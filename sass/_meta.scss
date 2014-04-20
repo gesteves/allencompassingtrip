@@ -1,28 +1,15 @@
 .meta {
   width: 100%;
   max-width: 960px;
-  font-size: 14px;
-  line-height: 1.7142857143;
   margin: 0 auto;
   font-weight: 400;
   color: #999;
   clear: both;
-  .date {
-    margin-left: 0;
-    float: left;
-  }
-  .source {
-    float: left;
-    &:before {
-      content: '•';
-      margin: 0 2px 0 5px;
-    }
-    @media (max-width: $x-small) {
-      clear: both;
-      &:before {
-        display: none;
-      }
-    }
+  p {
+    font-size: 14px;
+    line-height: 1.7142857143;
+    margin: 0;
+    text-align: center;
   }
   b {
     color:#000;

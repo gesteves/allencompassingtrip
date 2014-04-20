@@ -41,7 +41,7 @@
 <link href="http://allencompassingtrip.com.s3.amazonaws.com/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="//use.typekit.net/dyo6cyj.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<meta name="if:Show Adsense" content="1"/>
+<meta name="if:More photos" content="0"/>
 </head>
 <body {block:PermalinkPage}class="permalink"{/block:PermalinkPage}>
 <div class="wrap">
@@ -79,17 +79,33 @@
     <div class="caption" itemprop="description">
       {Caption}
     </div>
-    {block:Exif}
-    <ul class="exif">
-        {block:Camera}<li class="exif-camera">{Camera}</li>{/block:Camera}
-        {block:FocalLength}<li class="exif-focal-length">{FocalLength}</li>{/block:FocalLength}
-        {block:Aperture}<li class="exif-aperture">{Aperture}</li>{/block:Aperture}
-        {block:Exposure}<li class="exif-exposure">{Exposure}</li>{/block:Exposure}
-        {block:Iso}<li class="exif-iso">{Iso}</li>{/block:Iso}
-    </ul>
-    {/block:Exif}
     </div>
-    
+    </div>
+    <div class="meta">
+      <p>
+        {block:Date}
+          Published on 
+          <a href="{Permalink}" rel="bookmark">
+            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+          </a>
+        {/block:Date}
+        {block:Exif}
+          <span class="exif">
+            {block:Camera}<span class="exif-camera">{Camera}</span>{/block:Camera}
+            {block:FocalLength}<span class="exif-focal-length">{FocalLength}</span>{/block:FocalLength}
+            {block:Aperture}<span class="exif-aperture">{Aperture}</span>{/block:Aperture}
+            {block:Exposure}<span class="exif-exposure">{Exposure}</span>{/block:Exposure}
+            {block:Iso}<span class="exif-iso">{Iso}</span>{/block:Iso}
+          </span>
+        {/block:Exif}
+        {block:HasTags}
+        <span class="tags" itemprop="keywords">
+          {block:Tags}
+            <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+          {/block:Tags}
+        </span>
+        {/block:HasTags}
+      </p>
     </div>
     {/block:Photo}
 
@@ -106,15 +122,6 @@
     <div class="caption" itemprop="description">
       <p>{Caption}</p>
     </div>
-    {block:Exif}
-    <ul class="exif">
-        {block:Camera}<li class="exif-camera">{Camera}</li>{/block:Camera}
-        {block:FocalLength}<li class="exif-focal-length">{FocalLength}</li>{/block:FocalLength}
-        {block:Aperture}<li class="exif-aperture">{Aperture}</li>{/block:Aperture}
-        {block:Exposure}<li class="exif-exposure">{Exposure}</li>{/block:Exposure}
-        {block:Iso}<li class="exif-iso">{Iso}</li>{/block:Iso}
-    </ul>
-    {/block:Exif}
     </div>
     {/block:Caption} 
     
@@ -126,59 +133,25 @@
       {Caption}
     </div>
     </div>
+    <div class="meta">
+      <p>
+        {block:Date}
+          Published on 
+          <a href="{Permalink}" rel="bookmark">
+            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+          </a>
+        {/block:Date}
+        {block:HasTags}
+        <span class="tags" itemprop="keywords">
+          {block:Tags}
+            <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+          {/block:Tags}
+        </span>
+        {/block:HasTags}
+      </p>
+    </div>
     {/block:Photoset}
     
-    {block:Date}
-    {block:HasTags}
-      <ul class="tags" itemprop="keywords">
-          {block:Tags}
-            <li><a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a></li>
-          {/block:Tags}
-      </ul>
-    {/block:HasTags}
-    <div class="meta">
-      <div class="date">
-        Published on 
-        <a href="{Permalink}" rel="bookmark">
-          <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
-        </a>
-      </div>
-
-      {block:ContentSource}
-      <div class="source">
-        <span>Source:</span> <a href="{SourceURL}">{SourceTitle}</a>
-      </div>
-      {/block:ContentSource}
-
-      <ul class="share">
-        <li class="like">{LikeButton size="14" color="black"}</li>
-        <li class="reblog">{ReblogButton size="14" color="black"}</li>
-        <li class="tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="{Permalink}" data-via="gesteves">Tweet</a></li>
-        <li class="plusone"><div class="g-plusone" data-size="medium" data-annotation="none" data-href="{Permalink}" data-callback="trackGooglePlus"></div></li>
-        <li class="fb-like"><div class="fb-like" data-href="{Permalink}" data-share="true" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>
-      </ul>
-    </div>
-    
-    {/block:Date}
-
-    {block:PermalinkPage}
-      {block:IfShowAdsense}
-        <div class="leaderboard">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- Photoblog responsive ad -->
-          <ins class="adsbygoogle photoblog-responsive-ad"
-               style="display:inline-block"
-               data-ad-client="ca-pub-6384133423736330"
-               data-ad-slot="7156210502"></ins>
-          <script>
-          if (!document.referrer.match(/reddit\.com/)) {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-          }
-          </script>
-        </div>
-        {/block:IfShowAdsense}
-      {/block:PermalinkPage}
-  
   </article>
   
   {/block:Posts}
@@ -237,6 +210,7 @@
 
 
   {block:PermalinkPage}
+  {block:IfMorePhotos}
   <div class="more-photos"></div>
   <script type="text/html" id="photo-template">
     
@@ -256,6 +230,7 @@
       <% }); %>
     </div>
   </script>
+  {/block:IfMorePhotos}
   {/block:PermalinkPage}
   
 </section>
@@ -263,16 +238,7 @@
 <footer>
   <div class="container">
     <div class="about">
-      <h1>About</h1>
-      <p>I’m <a href="http://gesteves.com">Guillermo Esteves</a>. I’m a web developer and amateur photographer living in Washington, DC. This is my photoblog.</p>
-      <p class="nav"><a href="http://gesteves.com" rel="me">Website</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a></p>
-    </div>
-    <div class="follow">
-      <h1>Follow me</h1>
-      <ul> 
-        <li class="twitter"><a href="https://twitter.com/gesteves" class="twitter-follow-button" data-show-count="true">Follow @gesteves</a></li>
-        <li class="adn"><a href='https://alpha.app.net/intent/subscribe/?channel_id=34853' class='adn-button' target='_blank' data-type='subscribe' data-width='141' data-height='21' data-size='11' data-channel-id='34853' >Subscribe on App.net</a></li>
-      </ul>
+      <p class="nav">&copy; {CopyrightYears} <a href="http://gesteves.com" rel="me">Guillermo Esteves</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a></p>
     </div>
   </div>
   

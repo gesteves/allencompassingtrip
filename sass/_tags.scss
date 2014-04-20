@@ -1,4 +1,4 @@
-article ul.tags {
+article .tags {
   color: #999;
   width: 100%;
   max-width: 960px;
@@ -7,28 +7,20 @@ article ul.tags {
   padding: 0;
   margin: 0 auto;
   clear: both;
+  display: none;
 
   &:before {
-    content: "Tagged ";
-    float: left;
+    content: "• Tagged ";
     margin-right: 2px;
-  }
-
-  li {
-    list-style-type: none;
-    float: left;
-    display: inline;
-    margin-right: 2px;
-    
-    &:before {
-      content:"#";
-      color:#999;
-    }
   }
 
   a[rel="tag"] {
     margin-right:3px;
     text-transform: lowercase;
+    &:before {
+      content:"#";
+      color:#999;
+    }
   }
   a:link, a:visited {
     color:#000;

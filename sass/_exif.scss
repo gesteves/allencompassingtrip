@@ -1,16 +1,8 @@
-article ul.exif {
-	font-size: 14px;
-	line-height: 1.7142857143;
-	float: left;
-	padding: 0;
-	margin: 0;
-
-	li {
-		list-style-type: none;
-		float: left;
-		display: inline;
+article .exif {
+	span {
 		margin-right: 2px;
 		white-space: nowrap;
+		color: #333;
 
 		&:before {
 			color: #999;
@@ -19,7 +11,7 @@ article ul.exif {
 
 
 	.exif-camera:before {
-		content: "Camera ";
+		content: "• Camera ";
 	}
 	.exif-lens:before {
 		content: "• Lens ";

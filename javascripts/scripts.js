@@ -4,15 +4,10 @@
 
   methods = {
     init : function () {
-      _dc.setUpTweetText();
       _dc.setUpLazyLoad();
       _dc.hideDefaultTags();
       _dc.setUpMachineTags();
-      _dc.initFacebook();
-      _dc.initTwitter();
-      _dc.initGooglePlus();
       _dc.initAnalytics();
-      _dc.initAppNet();
       _dc.fetchMorePhotos();
 
       $window.on('resize', _.throttle(_dc.setImageHeight, 100));
@@ -26,16 +21,6 @@
           height;
       height = $window.height() * 0.95;
       photos.css({ 'max-height' : height + 'px'});
-    },
-    setUpTweetText : function () {
-      $('article').each(function () {
-        var article = $(this),
-            description = article.find('.description');
-            caption = description.find('.caption p').first().text();
-            caption = caption.length > 100 ? caption.substring(0, 80) + '…' : caption
-            tweet = article.find('.twitter-share-button');
-            tweet.attr('data-text', caption);
-      });
     },
     setUpLazyLoad : function () {
       var photos = $('img.main-photo'),
@@ -58,7 +43,7 @@
         var tag = $(this);
         var tags = /(photography|washington)/gi;
         if (tag.text().match(tags)) {
-          tag.parent().remove();
+          tag.remove();
         }
       });
     },
@@ -73,99 +58,21 @@
 
           if (tag.text().match(/^film:name/)) {
             text = tag.text().substring(tag.text().indexOf('=') + 1);
-            exif.after('<li class="exif-film">' + text + '</li>');
-            tag.parent().remove();
+            exif.after('<span class="exif-film">' + text + '</span>');
+            tag.remove();
           }
           if (tag.text().match(/^lens:model/)) {
             text = tag.text().substring(tag.text().indexOf('=') + 1);
-            exif.after('<li class="exif-lens">' + text + '</li>');
-            tag.parent().remove();
+            exif.after('<span class="exif-lens">' + text + '</span>');
+            tag.remove();
           }
         });
       });
-    },
-    initFacebook : function () {
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '107491745959221', // App ID from the App Dashboard
-          status     : true, // check the login status upon init?
-          cookie     : true, // set sessions cookies to allow your server to access the session?
-          xfbml      : true  // parse XFBML tags on this page?
-        });
-
-
-        FB.Event.subscribe('edge.create', function(targetUrl) {
-          window._gaq = window._gaq || [];
-          window._gaq.push(['_trackSocial', 'Facebook', 'Like', targetUrl]);
-          window._gaq.push(['_trackEvent', 'Social', 'Facebook : Like', targetUrl]);
-        });
-        FB.Event.subscribe('edge.remove', function(targetUrl) {
-          window._gaq = window._gaq || [];
-          window._gaq.push(['_trackSocial', 'Facebook', 'Unlike', targetUrl]);
-          window._gaq.push(['_trackEvent', 'Social', 'Facebook : Unlike', targetUrl]);
-        });
-
-      };
-
-      (function(d, debug){
-         var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement('script'); js.id = id; js.async = true;
-         js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
-         ref.parentNode.insertBefore(js, ref);
-       }(document, /*debug*/ false));
-    },
-    initTwitter : function () {
-      window.twttr = (function (d,s,id) {
-        var t, js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-        js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-      }(document, "script", "twitter-wjs"));
-
-      twttr.ready(function (twttr) {
-        twttr.events.bind('tweet', function(event) {
-          var url;
-          window._gaq = window._gaq || [];
-          if (event.target && event.target.nodeName == 'IFRAME') {
-                url = _dc.extractParamFromUri(event.target.src, 'url');
-          }
-          window._gaq.push(['_trackSocial', 'Twitter', 'Tweet', url]);
-          window._gaq.push(['_trackEvent', 'Social', 'Twitter : Tweet', url]);
-        });
-        twttr.events.bind('follow', function(event) {
-          window._gaq = window._gaq || [];
-          window._gaq.push(['_trackSocial', 'Twitter', 'Follow', '@' + event.data.screen_name]);
-          window._gaq.push(['_trackEvent', 'Social', 'Twitter : Follow', '@' + event.data.screen_name]);
-        });
-      });
-    },
-    initAppNet : function () {
-      (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='//d2zh9g63fcvyrq.cloudfront.net/adn.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'adn-button-js'));
-    },
-    initGooglePlus : function () {
-      (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-      })();
-    },
-    extractParamFromUri : function (uri, paramName) {
-      if (!uri) {
-        return;
-      }
-      var regex = new RegExp('[\\?&#]' + paramName + '=([^&#]*)');
-      var params = regex.exec(uri);
-      if (params != null) {
-        return unescape(params[1]);
-      }
-      return;
     },
     initAnalytics : function () {
 
       window._gaq = window._gaq || [];
       window._gaq.push(['_setAccount', 'UA-250261-30']);
-      window._gaq.push(['_setSiteSpeedSampleRate', 100]);
       window._gaq.push(['_trackPageview']);
 
       (function() {
@@ -210,12 +117,3 @@
   });
 
 })(jQuery);
-
-trackGooglePlus = function (json) {
-  _gaq = _gaq || [];
-  if (json.state === 'on') {
-    _gaq.push(['_trackEvent', 'Social' , 'Google : +1', json.href]);
-  } else {
-    _gaq.push(['_trackEvent', 'Social' , 'Google : -1', json.href]);
-  }
-}
