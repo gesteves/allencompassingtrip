@@ -160,7 +160,7 @@
     <p>
       {block:Pagination}
         {block:PreviousPage}
-        <a href="{PreviousPage}" rel="prev">&lsaquo; Previous</a>
+        <a href="{PreviousPage}" rel="next">&lsaquo; Newer</a>
         {/block:PreviousPage}
         {block:JumpPagination length="5"}
           {block:CurrentPage}
@@ -172,38 +172,18 @@
           {/block:JumpPage}
         {/block:JumpPagination}
         {block:NextPage}
-        <a href="{NextPage}" rel="next">Next &rsaquo;</a> 
+        <a href="{NextPage}" rel="prev">Older &rsaquo;</a> 
         {/block:NextPage}
       {/block:Pagination}
 
-
-
-      {block:DayPagination}
-        {block:NextDayPage}
-        <a href="{NextDayPage}" rel="prev">&lsaquo; Previous</a>
-        {/block:NextDayPage}
-        {block:JumpPagination length="5"}
-          {block:CurrentPage}
-              <span>{PageNumber}</span>
-          {/block:CurrentPage}
-
-          {block:JumpPage}
-              <a href="{URL}">{PageNumber}</a>
-          {/block:JumpPage}
-        {/block:JumpPagination}
-        {block:PreviousDayPage}
-        <a href="{PreviousDayPage}" rel="next">Next &rsaquo;</a>
-        {/block:PreviousDayPage}
-      {/block:DayPagination}
-
       {block:PermalinkPagination}
-        {block:PreviousPost}
-        <a href="{PreviousPost}" rel="prev">&lsaquo; Previous</a>
-        {/block:PreviousPost}
-
         {block:NextPost}
-        <a href="{NextPost}" rel="next">Next &rsaquo;</a>
+        <a href="{NextPost}" rel="next">&lsaquo; Newer</a>
         {/block:NextPost}
+
+        {block:PreviousPost}
+        <a href="{PreviousPost}" rel="prev">Older &rsaquo;</a>
+        {/block:PreviousPost}
       {/block:PermalinkPagination}
     </p>
   </nav>
