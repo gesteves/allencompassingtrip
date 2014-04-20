@@ -3,24 +3,37 @@
   max-width: 960px;
   margin: 0 auto;
   font-weight: 400;
-  color: #999;
   clear: both;
+  .dark & {
+    color: $dark_text;
+  }
+
+  .light & {
+    color: $light_text;
+  }
   p {
     font-size: 14px;
     line-height: 1.7142857143;
     margin: 0;
     text-align: center;
   }
-  b {
-    color:#000;
-    font-weight:normal;
-  }
   a:link, a:visited {
-    color:#000;
-    border-bottom:1px solid rgba(0,0,0,0);
+    border-bottom:1px solid;
+    .dark & {
+      color: $dark_text;
+      border-color: transparentize($dark_text, 1);
+    }
+
+    .light & {
+      color: $light_text;
+      border-color: transparentize($light_text, 1);
+    }
   }
   a:hover, a:active {
-    color:#000;
-    border-bottom:1px solid rgba(0,0,0,1);
+    border-bottom:1px solid;
+    .dark &, .light & {
+      color: $link;
+      border-color: $link;
+    }
   }
 }

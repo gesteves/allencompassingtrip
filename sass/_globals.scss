@@ -1,11 +1,21 @@
 html {
+  @include transition(color 100ms, background-color 500ms);
   font-family: $kepler;
   font-weight:300;
   font-size:62.5%;
-  color:#333;
   padding:0 20px;
   text-rendering: optimizeLegibility;
   height: 100%;
+
+  &.dark {
+    background-color: $dark_background;
+    color: $dark_text;
+  }
+
+  &.light {
+    background-color: $light_background;
+    color: $light_text;
+  }
 }
 
 body {
@@ -50,19 +60,10 @@ a {
 }
 
 a:link, a:visited {
-  color:$red;
-  border-bottom:1px solid rgba(191,2,34,0);
+  color: $link;
+  border-bottom:1px solid transparentize($link, 1);
 }
 a:hover, a:active {
-  color:$red;
-  border-bottom:1px solid rgba(191,2,34,1);
-}
-
-.regular h1 a:link, .regular h1 a:visited, .link h1 a:link, .link h1 a:visited {
-  color:#000;
-  border:none;
-}
-.regular h1 a:hover, .regular h1 a:active, .link h1 a:hover, .link h1 a:active  {
-  color:$red;
-  border:none;
+  color:$link;
+  border-bottom: 1px solid $link;
 }

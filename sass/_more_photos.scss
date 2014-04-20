@@ -9,7 +9,15 @@
     line-height: 1.2;
     margin: 1.2em 0;
     font-style: italic;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid;
+
+    .dark & {
+      border-color: $dark_border;
+    }
+
+    .light & {
+      border-color: $light_border;
+    }
 	}
 
 	.photos {

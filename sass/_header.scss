@@ -19,7 +19,6 @@ header {
     line-height: 1.5;
     margin: 0;
     font-style: italic;
-    color: #333;
   }
   p {
     font-weight:300;
@@ -30,11 +29,19 @@ header {
     float: left;
   }
   a:link, a:visited {
-    color:#000;
     border:none;
+    .dark & {
+      color: $dark_text;
+    }
+
+    .light & {
+      color: $light_text;
+    }
   }
   a:hover, a:active {
-    color:$red;
     border:none;
+    .dark &, .light & {
+      color: $link;
+    }
   }
 }

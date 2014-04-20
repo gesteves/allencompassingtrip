@@ -1,5 +1,4 @@
 article .tags {
-  color: #999;
   width: 100%;
   max-width: 960px;
   font-size: 14px;
@@ -8,6 +7,14 @@ article .tags {
   margin: 0 auto;
   clear: both;
   display: none;
+
+  .dark & {
+    color: $dark_text_alt;
+  }
+
+  .light & {
+    color: $light_text_alt;
+  }
 
   &:before {
     content: "• Tagged ";
@@ -19,15 +26,33 @@ article .tags {
     text-transform: lowercase;
     &:before {
       content:"#";
-      color:#999;
+      .dark & {
+        color: $dark_text_alt;
+      }
+
+      .light & {
+        color: $light_text_alt;
+      }
     }
   }
   a:link, a:visited {
-    color:#000;
-    border-bottom:1px solid rgba(0,0,0,0);
+    border-bottom:1px solid;
+
+    .dark & {
+      color: $dark_text;
+      border-color: transparentize($dark_text, 1);
+    }
+
+    .light & {
+      color: $light_text;
+      border-color: transparentize($light_text, 1);
+    }
   }
   a:hover, a:active {
-    color:#000;
-    border-bottom:1px solid rgba(0,0,0,1);
+    border-bottom:1px solid;
+    .dark &, .light & {
+      color: $link;
+      border-color: $link;
+    }
   }
 }

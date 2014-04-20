@@ -8,7 +8,13 @@ nav.pagination {
     max-width: 960px;
     text-align: center;
     span {
-      color: #999;
+      .dark & {
+        color: $dark_text_alt;
+      }
+
+      .light & {
+        color: $light_text_alt;
+      }
     }
     a, span {
       margin: 0 10px; 
@@ -20,12 +26,20 @@ nav.pagination {
     }
   }
   a:link, a:visited {
-    color:#000;
+    .dark & {
+      color: $dark_text;
+    }
+
+    .light & {
+      color: $light_text;
+    }
     border:none;
   }
 
   a:hover, a:active {
-    color:$red;
+    .dark &, .light & {
+      color:$link;
+    }
     border:none;
   }
 }

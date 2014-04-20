@@ -1,9 +1,11 @@
 (function($) {
   $window = $(window);
   $document = $(document);
+  $html = $('html');
 
   methods = {
     init : function () {
+      _dc.initTheme();
       _dc.setUpLazyLoad();
       _dc.hideDefaultTags();
       _dc.setUpMachineTags();
@@ -12,6 +14,7 @@
 
       $window.on('resize', _.throttle(_dc.setImageHeight, 100));
       $window.trigger('resize');
+      $('#toggle-theme').on('click', _dc.toggleTheme);
     }
   };
 
@@ -19,7 +22,7 @@
     setImageHeight : function () {
       var photos = $('img.main-photo'),
           height;
-      height = $window.height() * 0.95;
+      height = $window.height() - 10;
       photos.css({ 'max-height' : height + 'px'});
     },
     setUpLazyLoad : function () {
@@ -99,6 +102,22 @@
       var template = $('#photo-template').html(),
           container = $('.more-photos');
       container.html(_.template(template, { photos : json.response.posts })).fadeIn(100);
+    },
+    toggleTheme : function () {
+      $link = $(this);
+      $html.toggleClass('light dark');
+      if ($html.hasClass('light')) {
+        $.cookie('theme', 'light');
+      } else {
+        $.cookie('theme', 'dark');
+      }
+      return false;
+    },
+    initTheme : function () {
+      var theme = $.cookie('theme');
+      if (typeof theme !== 'undefined') {
+        $html.removeClass('light dark').addClass(theme);
+      }
     }
   };
 
