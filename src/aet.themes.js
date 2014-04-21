@@ -12,9 +12,9 @@ AET.Themes = (function ($) {
 	var toggleTheme = function () {
     $html.toggleClass('light dark');
     if ($html.hasClass('light')) {
-      $.cookie('theme', 'light');
+      $.cookie('theme', 'light', { path: '/'});
     } else {
-      $.cookie('theme', 'dark');
+      $.cookie('theme', 'dark', { path: '/'});
     }
     return false;
   };
