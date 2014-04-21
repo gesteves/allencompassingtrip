@@ -18,22 +18,19 @@
     text-align: center;
   }
   a:link, a:visited {
-    border-bottom:1px solid;
+    border: none;
     .dark & {
       color: $dark_text;
-      border-color: transparentize($dark_text, 1);
     }
 
     .light & {
       color: $light_text;
-      border-color: transparentize($light_text, 1);
     }
   }
   a:hover, a:active {
-    border-bottom:1px solid;
+    borde: none;
     .dark &, .light & {
       color: $link;
-      border-color: $link;
     }
   }
 }

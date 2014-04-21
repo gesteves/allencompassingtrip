@@ -95,14 +95,14 @@
             {block:Iso}<span class="exif-iso">{Iso}</span>{/block:Iso}
           </span>
         {/block:Exif}
-        {block:HasTags}
-        <span class="tags" itemprop="keywords">
-          {block:Tags}
-            <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-          {/block:Tags}
-        </span>
-        {/block:HasTags}
       </p>
+      {block:HasTags}
+      <p class="tags" itemprop="keywords">
+        {block:Tags}
+          <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+        {/block:Tags}
+      </p>
+      {/block:HasTags}
     </div>
     {/block:Photo}
 
@@ -138,14 +138,14 @@
             <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
           </a>
         {/block:Date}
-        {block:HasTags}
-        <span class="tags" itemprop="keywords">
-          {block:Tags}
-            <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-          {/block:Tags}
-        </span>
-        {/block:HasTags}
       </p>
+      {block:HasTags}
+      <p class="tags" itemprop="keywords">
+        {block:Tags}
+          <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+        {/block:Tags}
+      </p>
+      {/block:HasTags}
     </div>
     {/block:Photoset}
     
