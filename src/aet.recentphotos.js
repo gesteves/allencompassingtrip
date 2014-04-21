@@ -36,4 +36,6 @@ AET.RecentPhotos = (function ($) {
     build : build
 	};
 
-})(jQuery).init();
+})(jQuery);
+
+AET.RecentPhotos.init();

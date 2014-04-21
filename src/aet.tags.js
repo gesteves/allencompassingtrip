@@ -49,4 +49,6 @@ AET.Tags = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Tags.init();

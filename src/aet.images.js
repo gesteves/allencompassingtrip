@@ -39,4 +39,6 @@ AET.Images = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Images.init();

@@ -23,4 +23,6 @@ AET.App = (function () {
 	return {
 		init : init
 	};
-})().init();
+})();
+
+AET.App.init();

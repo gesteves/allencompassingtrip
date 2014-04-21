@@ -31,4 +31,6 @@ AET.Themes = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Themes.init();

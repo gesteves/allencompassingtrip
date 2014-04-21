@@ -392,7 +392,9 @@ AET.App = (function () {
 	return {
 		init : init
 	};
-})().init();
+})();
+
+AET.App.init();
 'use strict';
 
 var AET = AET || {};
@@ -434,7 +436,9 @@ AET.Images = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Images.init();
 'use strict';
 
 var AET = AET || {};
@@ -473,7 +477,9 @@ AET.RecentPhotos = (function ($) {
     build : build
 	};
 
-})(jQuery).init();
+})(jQuery);
+
+AET.RecentPhotos.init();
 'use strict';
 
 var AET = AET || {};
@@ -525,7 +531,9 @@ AET.Tags = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Tags.init();
 'use strict';
 
 var AET = AET || {};
@@ -559,4 +567,6 @@ AET.Themes = (function ($) {
 	return {
 		init : init
 	};
-})(jQuery).init();
+})(jQuery);
+
+AET.Themes.init();
