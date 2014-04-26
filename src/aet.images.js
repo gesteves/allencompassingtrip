@@ -11,7 +11,7 @@ AET.Images = (function ($) {
 	var $window = $(window);
 
 	var setImageHeight = function () {
-    var height = $window.height() - 10;
+    var height = $window.height();
     opts.photos.css({ 'max-height' : height + 'px'});
    };
    
