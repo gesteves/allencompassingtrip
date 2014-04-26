@@ -11,7 +11,7 @@ AET.Tags = (function ($) {
 	var hideDefaultTags = function () {
     opts.tags.each(function() {
       var tag = $(this);
-      var tags = /(photography|washington)/gi;
+      var tags = /(photography|washington dc)/gi;
       if (tag.text().match(tags)) {
         tag.remove();
       }
