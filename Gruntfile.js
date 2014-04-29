@@ -52,5 +52,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('default', ['watch']);
-
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
 };
