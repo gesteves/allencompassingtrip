@@ -45,9 +45,23 @@ module.exports = function(grunt) {
       tasks: ['jshint', 'concat', 'uglify']
     },
     compass: {
-      dist: {
+      compile: {
         options: {
           config: 'config.rb'
+        }
+      },
+      watch: {
+        options: {
+          config: 'config.rb',
+          watch: true
+        }
+      }
+    },
+    concurrent: {
+      target: {
+        tasks: ['compass:watch', 'watch'],
+        options: {
+          logConcurrentOutput: true
         }
       }
     }
@@ -58,6 +72,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
+  grunt.registerTask('default', ['concurrent:target']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass:compile']);
 };
