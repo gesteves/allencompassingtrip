@@ -1,229 +1,230 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<meta name="google-site-verification" content="lWdknMR4gPa2LvnAMdY7Pynb3ECTWL5YwLS9uF7ZtCE" />
-<link href="https://plus.google.com/114617182643828033131/posts" rel="publisher" />
-<meta name="viewport" content="width=device-width" />
-<meta property="fb:admins" content="514455047" />
-{block:Posts}
-{block:Permalink}
-{block:PostSummary}
-<meta property="og:title" content="{PostSummary}" />
-{/block:PostSummary}
-{block:Photo}
-<link rel="image_src" href="{PhotoURL-HighRes}" />
-<meta name="medium" content="image" />
-<meta property="og:image" content="{PhotoURL-HighRes}" />
-<meta property="og:description" content="{PlaintextCaption}" />
-<meta name="description" content="{PlaintextCaption}" />
-{/block:Photo}
-<link rel="canonical" href="{Permalink}">
-<meta property="og:url" content="{Permalink}" />
-<meta property="og:type" content="Article" />
-<title>{block:PostSummary}{block:Date}{PostSummary} &ndash; {/block:Date}{/block:PostSummary}{title}</title>
-{/block:Permalink}
-{/block:Posts}
-
-{block:DayPage}<title>Published on {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year} &ndash; {title}</title>{/block:DayPage}
-{block:TagPage}<title>Posts tagged &#8220;{Tag}&#8221; &ndash; {title}</title>{/block:TagPage}
-{block:SearchPage}<title>Search results for &#8220;{SearchQuery}&#8221; &ndash; {title}</title>{/block:SearchPage}
-{block:IndexPage}<meta name="description" content="{DescriptionPlainText}" />
-<title>{title}{block:PreviousPage} &ndash; Page {CurrentPage}{/block:PreviousPage}</title>
-{/block:IndexPage}
-<meta property="og:site_name" content="{title}" />
-<meta property="og:locale" content="en_US" />
-<link rel="alternate" type="application/rss+xml" href="{RSS}" />
-<link href="http://allencompassingtrip.com.s3.amazonaws.com/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="//use.typekit.net/dyo6cyj.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-</head>
-<body {block:PermalinkPage}class="permalink"{/block:PermalinkPage}>
-<div class="wrap">
-<meta name="if:More photos" content="0"/>
-<header>
-  <h1><a href="/">{title}</a></h1>
-  <h2>{Description}</h2>
-</header>
-<section id="main-content">
-  {block:NoSearchResults}
-  <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
-  {/block:NoSearchResults}
-  {block:Posts}
-  
-    {block:Text}
-    <article itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="regular">
-    {block:Title}<h1 itemprop="name"><a href="{Permalink}" class="entry-title" rel="bookmark">{Title}</a></h1>{/block:Title}
-    <div class="content" itemprop="description">{Body}
-    {block:More}
-    <p class="more"><a href="{Permalink}">Read more &rsaquo;</a></p>
-    {/block:More}
-    </div>
-    </div>
-
-    {/block:Text}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="google-site-verification" content="lWdknMR4gPa2LvnAMdY7Pynb3ECTWL5YwLS9uF7ZtCE" />
+    <link href="https://plus.google.com/114617182643828033131/posts" rel="publisher" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="fb:admins" content="514455047" />
     
-    {block:Photo}
-    <article itemscope itemtype="http://schema.org/Photograph">
-    <div class="photo">
-    <div class="main">
-    <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://allencompassingtrip.com.s3.amazonaws.com/images/pixel.gif" alt="{PhotoAlt}" class="main-photo" /></a>
-    <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
-    </div>
-    <div class="description">
-    <div class="caption" itemprop="description">
-      {Caption}
-    </div>
-    </div>
-    </div>
-    <div class="meta">
-      <p>
-        {block:Date}
-          Published on 
-          <a href="{Permalink}" rel="bookmark">
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
-          </a>
-        {/block:Date}
-        {block:Exif}
-          <span class="exif">
-            {block:Camera}<span class="exif-camera">{Camera}</span>{/block:Camera}
-            {block:FocalLength}<span class="exif-focal-length">{FocalLength}</span>{/block:FocalLength}
-            {block:Aperture}<span class="exif-aperture">{Aperture}</span>{/block:Aperture}
-            {block:Exposure}<span class="exif-exposure">{Exposure}</span>{/block:Exposure}
-            {block:Iso}<span class="exif-iso">{Iso}</span>{/block:Iso}
-          </span>
-        {/block:Exif}
-      </p>
-      {block:HasTags}
-      <p class="tags" itemprop="keywords">
-        {block:Tags}
-          <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-        {/block:Tags}
-      </p>
-      {/block:HasTags}
-    </div>
-    {/block:Photo}
+    {block:Posts}
+      {block:Permalink}
+        {block:PostSummary}
+          <meta property="og:title" content="{PostSummary}" />
+        {/block:PostSummary}
+        {block:Photo}
+          <link rel="image_src" href="{PhotoURL-HighRes}" />
+          <meta name="medium" content="image" />
+          <meta property="og:image" content="{PhotoURL-HighRes}" />
+          <meta property="og:description" content="{PlaintextCaption}" />
+          <meta name="description" content="{PlaintextCaption}" />
+        {/block:Photo}
+        <link rel="canonical" href="{Permalink}">
+        <meta property="og:url" content="{Permalink}" />
+        <meta property="og:type" content="Article" />
+        <title>{block:PostSummary}{block:Date}{PostSummary} &ndash; {/block:Date}{/block:PostSummary}{title}</title>
+      {/block:Permalink}
+    {/block:Posts}
 
-    {block:Photoset}
-    <article itemscope itemtype="http://schema.org/Photograph">
-    {block:Photos}
-    <div class="photo">
-    <div class="main">
-    <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://allencompassingtrip.com.s3.amazonaws.com/images/pixel.gif" alt="{PhotoAlt}" itemprop="image" class="main-photo" /></a>
-    <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
-    </div>
-    {block:Caption} 
-    <div class="description">
-    <div class="caption" itemprop="description">
-      <p>{Caption}</p>
-    </div>
-    </div>
-    {/block:Caption} 
-    
-    </div>
-    {/block:Photos}
+    {block:DayPage}
+      <title>Published on {DayOfWeek}, {Month} {DayOfMonth}{DayOfMonthSuffix}, {Year} &ndash; {title}</title>
+    {/block:DayPage}
 
-    <div class="description">
-    <div class="caption" itemprop="description">
-      {Caption}
-    </div>
-    </div>
-    <div class="meta">
-      <p>
-        {block:Date}
-          Published on 
-          <a href="{Permalink}" rel="bookmark">
-            <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
-          </a>
-        {/block:Date}
-      </p>
-      {block:HasTags}
-      <p class="tags" itemprop="keywords">
-        {block:Tags}
-          <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-        {/block:Tags}
-      </p>
-      {/block:HasTags}
-    </div>
-    {/block:Photoset}
-    
-  </article>
-  
-  {/block:Posts}
-  
-  <nav class="pagination">
-    <p>
-      {block:Pagination}
-        {block:PreviousPage}
-        <a href="{PreviousPage}" rel="next">&lsaquo; Newer</a>
-        {/block:PreviousPage}
-        {block:JumpPagination length="5"}
-          {block:CurrentPage}
-              <span>{PageNumber}</span>
-          {/block:CurrentPage}
+    {block:TagPage}
+      <title>Posts tagged &#8220;{Tag}&#8221; &ndash; {title}</title>
+    {/block:TagPage}
 
-          {block:JumpPage}
-              <a href="{URL}">{PageNumber}</a>
-          {/block:JumpPage}
-        {/block:JumpPagination}
-        {block:NextPage}
-        <a href="{NextPage}" rel="prev">Older &rsaquo;</a> 
-        {/block:NextPage}
-      {/block:Pagination}
+    {block:SearchPage}
+      <title>Search results for &#8220;{SearchQuery}&#8221; &ndash; {title}</title>
+    {/block:SearchPage}
 
-      {block:PermalinkPagination}
-        {block:NextPost}
-        <a href="{NextPost}" rel="next">&lsaquo; Newer</a>
-        {/block:NextPost}
+    {block:IndexPage}
+      <meta name="description" content="{DescriptionPlainText}" />
+      <title>{title}{block:PreviousPage} &ndash; Page {CurrentPage}{/block:PreviousPage}</title>
+    {/block:IndexPage}
 
-        {block:PreviousPost}
-        <a href="{PreviousPost}" rel="prev">Older &rsaquo;</a>
-        {/block:PreviousPost}
-      {/block:PermalinkPagination}
-    </p>
-  </nav>
+    <meta property="og:site_name" content="{title}" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link href="http://allencompassingtrip.com.s3.amazonaws.com/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="//use.typekit.net/dyo6cyj.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <meta name="if:More photos" content="0"/>
+  </head>
+  <body {block:PermalinkPage}class="permalink"{/block:PermalinkPage}>
+    <div class="wrap">
+      <header>
+        <h1><a href="/">{title}</a></h1>
+        <h2>{Description}</h2>
+      </header>
+      <section id="main-content">
+        {block:NoSearchResults}
+          <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
+        {/block:NoSearchResults}
+        {block:Posts}
+        
+          {block:Text}
+          <article itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="regular">
+              {block:Title}<h1 itemprop="name"><a href="{Permalink}" class="entry-title" rel="bookmark">{Title}</a></h1>{/block:Title}
+              <div class="content" itemprop="description">{Body}
+                {block:More}
+                  <p class="more"><a href="{Permalink}">Read more &rsaquo;</a></p>
+                {/block:More}
+              </div>
+            </div>
+          {/block:Text}
+          
+          {block:Photo}
+            <article itemscope itemtype="http://schema.org/Photograph">
+              <div class="photo">
+                <div class="main">
+                  <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://allencompassingtrip.com.s3.amazonaws.com/images/pixel.gif" alt="{PhotoAlt}" class="main-photo" /></a>
+                  <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
+                </div>
+                <div class="description">
+                  <div class="caption" itemprop="description">
+                    {Caption}
+                  </div>
+                </div>
+              </div>
+              <div class="meta">
+                <p>
+                  {block:Date}
+                    Published on 
+                    <a href="{Permalink}" rel="bookmark">
+                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+                    </a>
+                  {/block:Date}
+                  {block:Exif}
+                    <span class="exif">
+                      {block:Camera}<span class="exif-camera">{Camera}</span>{/block:Camera}
+                      {block:FocalLength}<span class="exif-focal-length">{FocalLength}</span>{/block:FocalLength}
+                      {block:Aperture}<span class="exif-aperture">{Aperture}</span>{/block:Aperture}
+                      {block:Exposure}<span class="exif-exposure">{Exposure}</span>{/block:Exposure}
+                      {block:Iso}<span class="exif-iso">{Iso}</span>{/block:Iso}
+                    </span>
+                  {/block:Exif}
+                </p>
+                {block:HasTags}
+                  <p class="tags" itemprop="keywords">
+                    {block:Tags}
+                      <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+                    {/block:Tags}
+                  </p>
+                {/block:HasTags}
+              </div>
+          {/block:Photo}
 
+          {block:Photoset}
+            <article itemscope itemtype="http://schema.org/Photograph">
+              {block:Photos}
+                <div class="photo">
+                  <div class="main">
+                    <a href="{Permalink}"><img data-original="{PhotoURL-HighRes}" data-small="{PhotoURL-500}" src="http://allencompassingtrip.com.s3.amazonaws.com/images/pixel.gif" alt="{PhotoAlt}" itemprop="image" class="main-photo" /></a>
+                    <noscript><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" itemprop="image" /></a></noscript>
+                </div>
+                {block:Caption} 
+                  <div class="description">
+                    <div class="caption" itemprop="description">
+                      <p>{Caption}</p>
+                    </div>
+                  </div>
+                {/block:Caption} 
+                </div>
+              {/block:Photos}
 
-  {block:PermalinkPage}
-  {block:IfMorePhotos}
-  <div class="more-photos"></div>
-  <script type="text/html" id="photo-template">
-    
-    <h2>Recent Photos You Might Enjoy</h2>
-    <div class="photos">
-      <% _.each(photos, function (photo, key, list) {
-         var photo_url = photo.photos[0].alt_sizes[3].url;
-      %>
-        <div class="photo">
-          <a href="<%= photo.post_url %>">
-          <div class="caption">
-            <p><%= photo.caption %></p>
+              <div class="description">
+                <div class="caption" itemprop="description">
+                  {Caption}
+                </div>
+              </div>
+              <div class="meta">
+                <p>
+                  {block:Date}
+                    Published on 
+                    <a href="{Permalink}" rel="bookmark">
+                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+                    </a>
+                  {/block:Date}
+                </p>
+                {block:HasTags}
+                <p class="tags" itemprop="keywords">
+                  {block:Tags}
+                    <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+                  {/block:Tags}
+                </p>
+                {/block:HasTags}
+              </div>
+            {/block:Photoset}
+        </article> 
+        {/block:Posts}
+        
+        <nav class="pagination">
+          <p>
+            {block:Pagination}
+              {block:PreviousPage}
+              <a href="{PreviousPage}" rel="next">&lsaquo; Newer</a>
+              {/block:PreviousPage}
+              {block:JumpPagination length="5"}
+                {block:CurrentPage}
+                    <span>{PageNumber}</span>
+                {/block:CurrentPage}
+
+                {block:JumpPage}
+                    <a href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}
+              {/block:JumpPagination}
+              {block:NextPage}
+              <a href="{NextPage}" rel="prev">Older &rsaquo;</a> 
+              {/block:NextPage}
+            {/block:Pagination}
+
+            {block:PermalinkPagination}
+              {block:NextPost}
+              <a href="{NextPost}" rel="next">&lsaquo; Newer</a>
+              {/block:NextPost}
+
+              {block:PreviousPost}
+              <a href="{PreviousPost}" rel="prev">Older &rsaquo;</a>
+              {/block:PreviousPost}
+            {/block:PermalinkPagination}
+          </p>
+        </nav>
+
+        {block:PermalinkPage}
+          {block:IfMorePhotos}
+          <div class="more-photos"></div>
+          <script type="text/html" id="photo-template">
+            <h2>Recent Photos You Might Enjoy</h2>
+            <div class="photos">
+              <% _.each(photos, function (photo, key, list) {
+                 var photo_url = photo.photos[0].alt_sizes[3].url;
+              %>
+                <div class="photo">
+                  <a href="<%= photo.post_url %>">
+                  <div class="caption">
+                    <p><%= photo.caption %></p>
+                  </div>
+                  <img src="<%= photo_url %>" alt="<%= photo.caption %>" />
+                  </a>
+                </div>
+              <% }); %>
+            </div>
+          </script>
+          {/block:IfMorePhotos}
+        {/block:PermalinkPage}
+      </section>
+
+      <footer>
+        <div class="container">
+          <div class="about">
+            <p class="nav">&copy; {CopyrightYears} <a href="http://gesteves.com" rel="me">Guillermo Esteves</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a> &bull; <a href="/" id="toggle-theme">Toggle colors</a></p>
           </div>
-          <img src="<%= photo_url %>" alt="<%= photo.caption %>" />
-          </a>
         </div>
-      <% }); %>
+      </footer>
     </div>
-  </script>
-  {/block:IfMorePhotos}
-  {/block:PermalinkPage}
-  
-</section>
-
-<footer>
-  <div class="container">
-    <div class="about">
-      <p class="nav">&copy; {CopyrightYears} <a href="http://gesteves.com" rel="me">Guillermo Esteves</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a> &bull; <a href="/" id="toggle-theme">Toggle colors</a></p>
-    </div>
-  </div>
-  
-</footer>
-
-</div>
-
-<script src="http://allencompassingtrip.com.s3.amazonaws.com/js/all-encompassing-trip.min.js"></script>
-
-</body>
+    <script src="http://allencompassingtrip.com.s3.amazonaws.com/js/all-encompassing-trip.min.js"></script>
+  </body>
 </html>
