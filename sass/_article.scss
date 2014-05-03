@@ -1,7 +1,7 @@
 article {
   width:100%;
   float:left;
-  margin: 96px 0;
+  margin: 24px 0;
   position:relative;
 
   &:first-child {
@@ -135,7 +135,7 @@ article {
     padding: 0 10px;
   }
 
-  @media (max-width: $x-small) {
-    margin: 24px 0;
+  @media (min-width: $x-small) {
+    margin: 96px 0;
   }
 }

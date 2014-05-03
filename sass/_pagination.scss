@@ -2,8 +2,8 @@ nav.pagination {
   width:100%;
   float: left;
   p {
-    font-size: 24px;
-    margin: 1em auto;
+    font-size: 16px;
+    margin: 1.5em 0;
     line-height: 1.5;
     max-width: 960px;
     text-align: center;
@@ -19,9 +19,9 @@ nav.pagination {
     a, span {
       margin: 0 10px; 
     }
-    @media (max-width: $x-small) {
-      font-size: 16px;
-      margin: 1.5em 0;
+    @media (min-width: $x-small) {
+      font-size: 24px;
+      margin: 1em auto;
       line-height: 1.5;
     }
   }
