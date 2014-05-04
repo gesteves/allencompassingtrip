@@ -26,7 +26,7 @@ AET.Images = (function ($) {
       }); 
     }
     opts.photos.show().lazyload({
-      threshold : 600,
+      threshold : 1000,
       effect : 'fadeIn'
     });
   };
@@ -34,6 +34,9 @@ AET.Images = (function ($) {
 	var init = function () {
 		setUpLazyLoad();
 		$window.on('resize', _.throttle(setImageHeight, 100)).trigger('resize');
+    $(function () {
+      $window.trigger('scroll');
+    });
 	};
 
 	return {
