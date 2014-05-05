@@ -5,7 +5,6 @@ var AET = AET || {};
 AET.Images = (function ($) {
 	var opts = {
 		photos : $('img.main-photo'),
-		lazyLoadWidth : 300
 	};
 
 	var $window = $(window);
@@ -14,29 +13,9 @@ AET.Images = (function ($) {
     var height = $window.height();
     opts.photos.css({ 'max-height' : height + 'px'});
    };
-   
-   var setUpLazyLoad = function () {
-    var small, photo;
-    
-    if ($window.width() <= opts.lazyLoadWidth) {
-      opts.photos.each(function () {
-        photo = $(this);
-        small = photo.attr('data-small');
-        photo.attr('data-original', small);
-      }); 
-    }
-    opts.photos.show().lazyload({
-      threshold : 1000,
-      effect : 'fadeIn'
-    });
-  };
 
 	var init = function () {
-		setUpLazyLoad();
 		$window.on('resize', _.throttle(setImageHeight, 100)).trigger('resize');
-    $(function () {
-      $window.trigger('scroll');
-    });
 	};
 
 	return {
