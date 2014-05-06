@@ -1,4 +1,5 @@
 /.sass-cache
-.DS_Store
 /build
+/node_modules
 grunt-aws.json
+.DS_Store
