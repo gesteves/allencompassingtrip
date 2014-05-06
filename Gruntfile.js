@@ -41,27 +41,13 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>'],
-      tasks: ['jshint', 'concat', 'uglify']
+      files: ['<%= jshint.files %>', 'sass/*.scss'],
+      tasks: ['jshint', 'concat', 'uglify', 'compass']
     },
     compass: {
-      compile: {
+      dist: {
         options: {
           config: 'config.rb'
-        }
-      },
-      watch: {
-        options: {
-          config: 'config.rb',
-          watch: true
-        }
-      }
-    },
-    concurrent: {
-      target: {
-        tasks: ['compass:watch', 'watch'],
-        options: {
-          logConcurrentOutput: true
         }
       }
     }
@@ -72,8 +58,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-concurrent');
 
-  grunt.registerTask('default', ['concurrent:target']);
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass:compile']);
+  grunt.registerTask('default', 'watch');
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass']);
 };
