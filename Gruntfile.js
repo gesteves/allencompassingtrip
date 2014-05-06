@@ -7,18 +7,18 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: ['src/vendor/*.js', 'src/*.js'],
-        dest: 'js/<%= pkg.name %>.js'
+        dest: 'build/js/<%= pkg.name %>.js'
       }
     },
     uglify: {
       dist: {
         files: {
-          'js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'build/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'src/*.js'],
+      files: ['Gruntfile.js', 'js/*.js'],
       options: {
         node: true,
         curly: true,

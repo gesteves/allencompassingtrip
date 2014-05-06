@@ -1,4 +1,3 @@
 /.sass-cache
-/stylesheets
-/js
 .DS_Store
+/build
