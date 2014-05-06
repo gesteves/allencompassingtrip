@@ -40,16 +40,34 @@ module.exports = function(grunt) {
         },
       }
     },
-    watch: {
-      files: ['<%= jshint.files %>', 'sass/*.scss'],
-      tasks: ['jshint', 'concat', 'uglify', 'compass']
-    },
     compass: {
       dist: {
         options: {
           config: 'config.rb'
         }
       }
+    },
+    aws: grunt.file.readJSON('grunt-aws.json'),
+    s3: {
+      options: {
+        key: '<%= aws.key %>',
+        secret: '<%= aws.secret %>',
+        bucket: '<%= aws.bucket %>',
+        access: 'public-read'
+      },
+      dist: {
+        upload: [
+          {
+            rel: 'build',
+            src: 'build/**/*',
+            dest: '/'
+          }
+        ]
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>', 'sass/*.scss'],
+      tasks: ['jshint', 'concat', 'uglify', 'compass', 's3']
     }
   });
 
@@ -58,7 +76,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-s3');
 
   grunt.registerTask('default', 'watch');
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass', 's3']);
 };
