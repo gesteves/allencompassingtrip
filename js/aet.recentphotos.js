@@ -25,16 +25,16 @@ AET.RecentPhotos = (function ($) {
     opts.container.html(_.template(template, { photos : json.response.posts })).fadeIn(100);
   };
 
-	var init = function () {
-		if (opts.container.length > 0) {
+  var init = function () {
+    if (opts.container.length > 0) {
       fetch();
     }
-	};
+  };
 
-	return {
-		init : init,
+  return {
+    init : init,
     build : build
-	};
+  };
 
 })(jQuery);
 

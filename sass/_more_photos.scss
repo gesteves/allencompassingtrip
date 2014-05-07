@@ -1,12 +1,12 @@
 .more-photos {
-	display: none;
-	width: 100%;
-	max-width: 960px;
-	margin: 0 auto;
-	padding: 0 10px;
+  display: none;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 10px;
 
-	h2 {
-		font-size: 20px;
+  h2 {
+    font-size: 20px;
     line-height: 1.2;
     margin: 1.2em 0;
     font-style: italic;
@@ -19,55 +19,55 @@
     .light & {
       border-color: $light_border;
     }
-	}
+  }
 
-	.photos {
-		@include columns(2, 3%, 47%);
+  .photos {
+    @include columns(2, 3%, 47%);
 
-		@media (min-width: $small) {
-    	@include columns(3, 3%, 30%);
+    @media (min-width: $small) {
+      @include columns(3, 3%, 30%);
     }
 
-		@media (min-width: $medium) {
-    	@include columns(4, 3%, 22%);
+    @media (min-width: $medium) {
+      @include columns(4, 3%, 22%);
     }
-	}
+  }
 
-	.photo {
-		margin-bottom: 10px;
-		position: relative;
+  .photo {
+    margin-bottom: 10px;
+    position: relative;
 
-		.caption {
-			box-shadow: inset 0 0 50px rgba(0,0,0,1);
-			display: block;
-			background: rgba(0,0,0,0.75);
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			z-index: 1;
-			position: absolute;
-			overflow: hidden;
+    .caption {
+      box-shadow: inset 0 0 50px rgba(0,0,0,1);
+      display: block;
+      background: rgba(0,0,0,0.75);
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 1;
+      position: absolute;
+      overflow: hidden;
 
-			p {
-				color:#eee;
-				font-size: 14px;
-				line-height: 1.25;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				padding: 10px;
-			}
-		}
+      p {
+        color:#eee;
+        font-size: 14px;
+        line-height: 1.25;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+      }
+    }
 
-		a {
-			display: block;
+    a {
+      display: block;
 
-			&:link, &:visited, &:hover, &:active {
-				border: none;
-			}
+      &:link, &:visited, &:hover, &:active {
+        border: none;
+      }
 
-			&:hover .caption { opacity: 1; }
-		}
+      &:hover .caption { opacity: 1; }
+    }
 
-	}
+  }
 }

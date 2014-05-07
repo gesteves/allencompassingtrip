@@ -3,12 +3,12 @@
 var AET = AET || {};
 
 AET.Tags = (function ($) {
-	var opts = {
-		tags : $('a[rel=tag]'),
-		articles : $('article')
-	};
+  var opts = {
+    tags : $('a[rel=tag]'),
+    articles : $('article')
+  };
 
-	var hideDefaultTags = function () {
+  var hideDefaultTags = function () {
     opts.tags.each(function() {
       var tag = $(this);
       var tags = /(photography|washington dc)/gi;
@@ -41,14 +41,14 @@ AET.Tags = (function ($) {
     });
   };
 
-	var init = function () {
-		hideDefaultTags();
-		setUpMachineTags();
-	};
+  var init = function () {
+    hideDefaultTags();
+    setUpMachineTags();
+  };
 
-	return {
-		init : init
-	};
+  return {
+    init : init
+  };
 })(jQuery);
 
 AET.Tags.init();

@@ -4,15 +4,15 @@ var AET = AET || {};
 
 AET.Shortcuts = (function ($) {
 
-	var opts = {
-		older_page : $('.pagination a[rel=prev]'),
-		newer_page : $('.pagination a[rel=next]')
-	};
+  var opts = {
+    older_page : $('.pagination a[rel=prev]'),
+    newer_page : $('.pagination a[rel=next]')
+  };
 
-	var $document = $(document);
+  var $document = $(document);
 
   var init = function () {
-  	$document.on('keydown', navigate);
+    $document.on('keydown', navigate);
   };
 
   var navigate = function (e) {
@@ -26,30 +26,30 @@ AET.Shortcuts = (function ($) {
       k: 75
     };
     switch (key) {
-	    case keys.left:
-	      newerPage();
-	      break;
-	    case keys.right:
-	      olderPage();
-	      break;
+      case keys.left:
+        newerPage();
+        break;
+      case keys.right:
+        olderPage();
+        break;
     }
   };
 
   var newerPage = function () {
-  	if (opts.newer_page.length) {
-  		window.location.href = opts.newer_page.attr('href');
-  	}
+    if (opts.newer_page.length) {
+      window.location.href = opts.newer_page.attr('href');
+    }
   };
 
   var olderPage = function () {
-  	if (opts.older_page.length) {
-  		window.location.href = opts.older_page.attr('href');
-  	}
+    if (opts.older_page.length) {
+      window.location.href = opts.older_page.attr('href');
+    }
   };
 
-	return {
+  return {
     init : init
-	};
+  };
 })(jQuery);
 
 AET.Shortcuts.init();

@@ -7,7 +7,7 @@
 }
 
 @mixin columns($count, $gap, $width) {
-	-moz-column-count:$count;
+  -moz-column-count:$count;
   -moz-column-gap: $gap;
   -moz-column-width: $width;
   -webkit-column-count:$count;

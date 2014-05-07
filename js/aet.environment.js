@@ -7,7 +7,7 @@ AET.Environment = (function () {
 
   var _touch = ('ontouchstart' in window) || (window.DocumentTouch && document instanceof DocumentTouch) || (navigator.msMaxTouchPoints > 0);
 
-	return {
+  return {
     touch : _touch
-	};
+  };
 })();

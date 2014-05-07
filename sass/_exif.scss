@@ -1,7 +1,7 @@
 article .exif {
-	span {
-		margin-right: 2px;
-		.dark & {
+  span {
+    margin-right: 2px;
+    .dark & {
       color: $dark_text;
     }
 
@@ -9,41 +9,41 @@ article .exif {
       color: $light_text;
     }
 
-		&:before {
-			.dark & {
+    &:before {
+      .dark & {
       color: $dark_text_alt;
     }
 
-	    .light & {
-	      color: $light_text_alt;
-	    }
-		}
+      .light & {
+        color: $light_text_alt;
+      }
+    }
 
-		span {
-			white-space: nowrap;
-		}
-	}
+    span {
+      white-space: nowrap;
+    }
+  }
 
 
-	.exif-camera:before {
-		content: "• Camera ";
-	}
-	.exif-lens:before {
-		content: "• Lens ";
-	}
-	.exif-film:before {
-		content: "• Film ";
-	}
-	.exif-focal-length:before {
-		content: "• Focal length ";
-	}
-	.exif-aperture:before {
-		content: "• Aperture ";
-	}
-	.exif-exposure:before {
-		content: "• Shutter speed ";
-	}
-	.exif-iso:before {
-		content: "• ISO ";
-	}
+  .exif-camera:before {
+    content: "• Camera ";
+  }
+  .exif-lens:before {
+    content: "• Lens ";
+  }
+  .exif-film:before {
+    content: "• Film ";
+  }
+  .exif-focal-length:before {
+    content: "• Focal length ";
+  }
+  .exif-aperture:before {
+    content: "• Aperture ";
+  }
+  .exif-exposure:before {
+    content: "• Shutter speed ";
+  }
+  .exif-iso:before {
+    content: "• ISO ";
+  }
 }
