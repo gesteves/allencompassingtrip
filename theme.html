@@ -65,10 +65,10 @@
         {block:Posts}
         
           {block:Text}
-          <article itemscope itemtype="http://schema.org/BlogPosting">
+          <article>
             <div class="regular">
-              {block:Title}<h1 itemprop="name"><a href="{Permalink}" class="entry-title" rel="bookmark">{Title}</a></h1>{/block:Title}
-              <div class="content" itemprop="description">{Body}
+              {block:Title}<h1><a href="{Permalink}" class="entry-title" rel="bookmark">{Title}</a></h1>{/block:Title}
+              <div class="content">{Body}
                 {block:More}
                   <p class="more"><a href="{Permalink}">Read more &rsaquo;</a></p>
                 {/block:More}
@@ -77,15 +77,15 @@
           {/block:Text}
           
           {block:Photo}
-            <article itemscope itemtype="http://schema.org/Photograph">
+            <article>
               <div class="photo">
                 <div class="main">
                   <a href="{Permalink}">
-                    <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" itemprop="image" class="main-photo" />
+                    <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="main-photo" />
                   </a>
                 </div>
                 <div class="description">
-                  <div class="caption" itemprop="description">
+                  <div class="caption">
                     {Caption}
                   </div>
                 </div>
@@ -95,7 +95,7 @@
                   {block:Date}
                     Published on 
                     <a href="{Permalink}" rel="bookmark">
-                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
                     </a>
                   {/block:Date}
                   {block:Exif}
@@ -109,7 +109,7 @@
                   {/block:Exif}
                 </p>
                 {block:HasTags}
-                  <p class="tags" itemprop="keywords">
+                  <p class="tags">
                     {block:Tags}
                       <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
                     {/block:Tags}
@@ -119,17 +119,17 @@
           {/block:Photo}
 
           {block:Photoset}
-            <article itemscope itemtype="http://schema.org/Photograph">
+            <article>
               {block:Photos}
                 <div class="photo">
                   <div class="main">
                     <a href="{Permalink}">
-                      <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" itemprop="image" class="main-photo" />
+                      <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="main-photo" />
                     </a>
                 </div>
                 {block:Caption} 
                   <div class="description">
-                    <div class="caption" itemprop="description">
+                    <div class="caption">
                       <p>{Caption}</p>
                     </div>
                   </div>
@@ -138,7 +138,7 @@
               {/block:Photos}
 
               <div class="description">
-                <div class="caption" itemprop="description">
+                <div class="caption">
                   {Caption}
                 </div>
               </div>
@@ -147,12 +147,12 @@
                   {block:Date}
                     Published on 
                     <a href="{Permalink}" rel="bookmark">
-                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate itemprop="datePublished">{DayOfMonth} {Month} {Year}</time>
+                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
                     </a>
                   {/block:Date}
                 </p>
                 {block:HasTags}
-                <p class="tags" itemprop="keywords">
+                <p class="tags">
                   {block:Tags}
                     <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
                   {/block:Tags}
