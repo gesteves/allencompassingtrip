@@ -1,0 +1,149 @@
+$m : '.m-entry';
+
+#{$m} {
+  margin: 2.4rem 0;
+  width: 100%;
+  p,
+  ul,
+  ol,
+  dl {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+  }
+  p {
+    margin: 1.5rem 0 0 0;
+  }
+  ul,
+  ol {
+    margin: 1.5rem;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+  cite, em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  strong {
+    font-style: normal;
+    font-weight: bold;
+  }
+  small {
+    font-size: 1.2rem;
+    line-height: 2;
+    font-weight: 400;
+  }
+  q:before {
+    content: '\201c';
+  }
+  q q:before {
+    content: '\2018';
+  }
+  q:after {
+    content: '\201d';
+  }
+  q q:after {
+    content: '\2019';
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+  }
+  &:first-of-type {
+    margin-top: 2.4rem;
+  }
+  @media (min-width: $bp-xs) {
+    margin: 9.6rem 0;
+  }
+  @media (min-width: $bp-m) {
+    margin: 19.2rem 0;
+  }
+}
+
+#{$m}__body {
+  margin: 0 auto;
+  max-width: $bp-l;
+
+  blockquote {
+    border-left: 2px solid;
+    font-weight: 300;
+    margin:0 1.5rem;
+    padding-left: 0.5rem;
+    position: relative;
+    p:first-child:before {
+      content: '\201c';
+      font-size: 3.6rem;
+      left: -20px;
+      position: absolute;
+      top: -10px;
+    }
+  }
+}
+
+#{$m}.text {
+  margin: 0 auto;
+  max-width: $bp-l;
+  text-align: left;
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  h2 {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.2;
+    margin: 1.2rem 0;
+  }
+}
+
+#{$m}.photo {
+  #{$m}__body {
+    text-align: center;
+  }
+}
+
+#{$m}__photo-container {
+  margin: 0 0 2.4rem 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  a {
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+#{$m}__photo {
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+#{$m}__meta {
+  font-weight: 400;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: $bp-l;
+  p {
+    font-size: 1.4rem;
+    line-height: 1.7142857143;
+    margin: 0;
+    text-align: center;
+  }
+  a:link, a:visited, a:hover, a:active {
+    border: none;
+  }
+}

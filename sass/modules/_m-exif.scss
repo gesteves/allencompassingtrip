@@ -1,0 +1,38 @@
+$m : '.m-exif';
+
+#{$m} {
+  span {
+    margin-right: 2px;
+    span {
+      white-space: nowrap;
+    }
+  }
+}
+
+#{$m}__camera:before {
+  content: "• Camera ";
+}
+
+#{$m}__lens:before {
+  content: "• Lens ";
+}
+
+#{$m}__film:before {
+  content: "• Film ";
+}
+
+#{$m}__focal-length:before {
+  content: "• Focal length ";
+}
+
+#{$m}__aperture:before {
+  content: "• Aperture ";
+}
+
+#{$m}__exposure:before {
+  content: "• Shutter speed ";
+}
+
+#{$m}__iso:before {
+  content: "• ISO ";
+}

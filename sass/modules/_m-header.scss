@@ -1,0 +1,35 @@
+$m : '.m-header';
+
+#{$m} {
+  margin: 4.4rem auto 2.4rem auto;
+  max-width: $bp-max;
+  text-align: center;
+  width: 100%;
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    margin: 0;
+    width: 100%;
+    @media (min-width: $bp-s) {
+      font-size: 2.4rem;
+    }
+  }
+  h2 {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+  }
+  p {
+    font-weight: 300;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin: 0;
+    width: 100%;
+  }
+  a:link, a:visited, a:hover, a:active {
+    border:none;
+  }
+}

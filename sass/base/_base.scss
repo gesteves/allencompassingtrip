@@ -1,0 +1,45 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $kepler;
+  font-size: 62.5%;
+  font-weight: 300;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  transition: color 100ms, background-color 500ms;
+}
+
+body {
+  height: 100%;
+}
+
+.no-results {
+  border-bottom: 1px solid #eee;
+  float: left;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin: 1rem 0;
+  margin: 9.6rem 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.25s linear, border-color 0.25s linear;
+}
+
+a:link, a:visited {
+  color: $color-links;
+  border-bottom: 1px solid transparentize($color-links, 1);
+}
+a:hover, a:active {
+  color: $color-links;
+  border-bottom: 1px solid $color-links;
+}

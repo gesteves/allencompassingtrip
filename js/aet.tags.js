@@ -21,7 +21,7 @@ AET.Tags = (function ($) {
   var setUpMachineTags = function () {
     opts.articles.each(function() {
       var article = $(this),
-          exif = article.find('.exif-camera'),
+          exif = article.find('.m-exif__camera'),
           tags = article.find('a[rel=tag]'),
           tag, text;
       tags.each(function () {
@@ -29,12 +29,12 @@ AET.Tags = (function ($) {
 
         if (tag.text().match(/^film:name/)) {
           text = tag.text().substring(tag.text().indexOf('=') + 1);
-          exif.after('<span class="exif-film">' + text + '</span>');
+          exif.after('<span class="m-exif__film">' + text + '</span>');
           tag.remove();
         }
         if (tag.text().match(/^lens:model/)) {
           text = tag.text().substring(tag.text().indexOf('=') + 1);
-          exif.after('<span class="exif-lens">' + text + '</span>');
+          exif.after('<span class="m-exif__lens">' + text + '</span>');
           tag.remove();
         }
       });

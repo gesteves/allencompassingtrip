@@ -1,0 +1,23 @@
+$m : '.m-pagination';
+
+#{$m} {
+  width: 100%;
+  p {
+    font-size: 1.6rem;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+    max-width: $bp-l;
+    text-align: center;
+    a, span {
+      margin: 0 1rem; 
+    }
+    @media (min-width: $bp-xs) {
+      font-size: 2.4rem;
+      margin: 1rem auto;
+      line-height: 1.5;
+    }
+  }
+  a:link, a:visited, a:hover, a:active {
+    border: none;
+  }
+}

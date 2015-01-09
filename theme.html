@@ -47,50 +47,43 @@
     <meta property="og:site_name" content="{title}" />
     <meta property="og:locale" content="en_US" />
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
-    <link href="http://allencompassingtrip.com.s3.amazonaws.com/stylesheets/styles.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="http://allencompassingtrip.com.s3.amazonaws.com/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="//use.typekit.net/dyo6cyj.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <meta name="if:More photos" content="0"/>
   </head>
-  <body {block:PermalinkPage}class="permalink"{/block:PermalinkPage}>
-    <div class="wrap">
-      <header>
+  <body>
+    <div class="l-container">
+      <header class="m-header">
         <h1><a href="/">{title}</a></h1>
         <h2>{Description}</h2>
       </header>
-      <section id="main-content">
+      <section>
         {block:NoSearchResults}
           <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
         {/block:NoSearchResults}
         {block:Posts}
         
           {block:Text}
-          <article>
-            <div class="regular">
-              {block:Title}<h1><a href="{Permalink}" class="entry-title" rel="bookmark">{Title}</a></h1>{/block:Title}
-              <div class="content">{Body}
+          <article class="m-entry text">
+              {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
+              <div class="m-entry__body">{Body}
                 {block:More}
-                  <p class="more"><a href="{Permalink}">Read more &rsaquo;</a></p>
+                  <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
                 {/block:More}
               </div>
-            </div>
           {/block:Text}
           
           {block:Photo}
-            <article>
-              <div class="photo">
-                <div class="main">
-                  <a href="{Permalink}">
-                    <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="main-photo" />
-                  </a>
-                </div>
-                <div class="description">
-                  <div class="caption">
-                    {Caption}
-                  </div>
-                </div>
+            <article class="m-entry photo">
+              <div class="m-entry__photo-container">
+                <a href="{Permalink}">
+                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+                </a>
               </div>
-              <div class="meta">
+              <div class="m-entry__body">
+                {Caption}
+              </div>
+              <div class="m-entry__meta">
                 <p>
                   {block:Date}
                     Published on 
@@ -99,17 +92,17 @@
                     </a>
                   {/block:Date}
                   {block:Exif}
-                    <span class="exif">
-                      {block:Camera}<span class="exif-camera">{Camera}</span>{/block:Camera}
-                      {block:FocalLength}<span class="exif-focal-length">{FocalLength}</span>{/block:FocalLength}
-                      {block:Aperture}<span class="exif-aperture">{Aperture}</span>{/block:Aperture}
-                      {block:Exposure}<span class="exif-exposure">{Exposure}</span>{/block:Exposure}
-                      {block:Iso}<span class="exif-iso">{Iso}</span>{/block:Iso}
+                    <span class="m-exif">
+                      {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
+                      {block:FocalLength}<span class="m-exif__focal-length">{FocalLength}</span>{/block:FocalLength}
+                      {block:Aperture}<span class="m-exif__aperture">{Aperture}</span>{/block:Aperture}
+                      {block:Exposure}<span class="m-exif__exposure">{Exposure}</span>{/block:Exposure}
+                      {block:Iso}<span class="m-exif__-iso">{Iso}</span>{/block:Iso}
                     </span>
                   {/block:Exif}
                 </p>
                 {block:HasTags}
-                  <p class="tags">
+                  <p class="m-tags">
                     {block:Tags}
                       <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
                     {/block:Tags}
@@ -119,30 +112,24 @@
           {/block:Photo}
 
           {block:Photoset}
-            <article>
+            <article class="m-entry photo">
               {block:Photos}
-                <div class="photo">
-                  <div class="main">
-                    <a href="{Permalink}">
-                      <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="main-photo" />
-                    </a>
+                <div class="m-entry__photo-container">
+                  <a href="{Permalink}">
+                    <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+                  </a>
                 </div>
                 {block:Caption} 
-                  <div class="description">
-                    <div class="caption">
-                      <p>{Caption}</p>
-                    </div>
+                  <div class="m-entry__body">
+                    <p>{Caption}</p>
                   </div>
-                {/block:Caption} 
-                </div>
+                {/block:Caption}
               {/block:Photos}
 
-              <div class="description">
-                <div class="caption">
-                  {Caption}
-                </div>
+              <div class="m-entry__body">
+                {Caption}
               </div>
-              <div class="meta">
+              <div class="m-entry__meta">
                 <p>
                   {block:Date}
                     Published on 
@@ -152,7 +139,7 @@
                   {/block:Date}
                 </p>
                 {block:HasTags}
-                <p class="tags">
+                <p class="m-tags">
                   {block:Tags}
                     <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
                   {/block:Tags}
@@ -163,7 +150,7 @@
         </article> 
         {/block:Posts}
         
-        <nav class="pagination">
+        <nav class="m-pagination">
           <p>
             {block:Pagination}
               {block:PreviousPage}
@@ -194,36 +181,11 @@
             {/block:PermalinkPagination}
           </p>
         </nav>
-
-        {block:PermalinkPage}
-          {block:IfMorePhotos}
-          <div class="more-photos"></div>
-          <script type="text/html" id="photo-template">
-            <h2>Recent Photos You Might Enjoy</h2>
-            <div class="photos">
-              <% _.each(photos, function (photo, key, list) {
-                 var photo_url = photo.photos[0].alt_sizes[3].url;
-              %>
-                <div class="photo">
-                  <a href="<%= photo.post_url %>">
-                  <div class="caption">
-                    <p><%= photo.caption %></p>
-                  </div>
-                  <img src="<%= photo_url %>" alt="<%= photo.caption %>" />
-                  </a>
-                </div>
-              <% }); %>
-            </div>
-          </script>
-          {/block:IfMorePhotos}
-        {/block:PermalinkPage}
       </section>
 
-      <footer>
-        <div class="container">
-          <div class="about">
-            <p class="nav">&copy; {CopyrightYears} <a href="http://gesteves.com" rel="me">Guillermo Esteves</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a> &bull; <a href="/" id="toggle-theme">Toggle colors</a></p>
-          </div>
+      <footer class="m-footer">
+        <div class="l-container">
+            <p class="m-footer__nav">&copy; {CopyrightYears} <a href="http://gesteves.com" rel="me">Guillermo Esteves</a> &bull; <a href="/archive" rel="archives">Archive</a> &bull; <a href="/random">Random</a> &bull; <a href="{RSS}">RSS</a> &bull; <a href="mailto:contact@gesteves.com">Contact</a> &bull; <a href="/" id="toggle-theme">Toggle colors</a></p>
         </div>
       </footer>
     </div>

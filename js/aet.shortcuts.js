@@ -5,8 +5,8 @@ var AET = AET || {};
 AET.Shortcuts = (function ($) {
 
   var opts = {
-    older_page : $('.pagination a[rel=prev]'),
-    newer_page : $('.pagination a[rel=next]')
+    older_page : $('.m-pagination a[rel=prev]'),
+    newer_page : $('.m-pagination a[rel=next]')
   };
 
   var $document = $(document);
