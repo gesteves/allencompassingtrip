@@ -21,23 +21,25 @@ AET.Tags = (function ($) {
   var setUpMachineTags = function () {
     opts.articles.each(function() {
       var article = $(this),
-          exif = article.find('.m-exif__camera'),
+          camera = article.find('.m-exif__camera'),
           tags = article.find('a[rel=tag]'),
+          film = '',
+          lens = '',
           tag, text;
       tags.each(function () {
         tag = $(this);
-
         if (tag.text().match(/^film:name/)) {
           text = tag.text().substring(tag.text().indexOf('=') + 1);
-          exif.after('<span class="m-exif__film">' + text + '</span>');
+          film = '<span class="m-exif__film">' + text + '</span>';
           tag.remove();
         }
         if (tag.text().match(/^lens:model/)) {
           text = tag.text().substring(tag.text().indexOf('=') + 1);
-          exif.after('<span class="m-exif__lens">' + text + '</span>');
+          lens = '<span class="m-exif__lens">' + text + '</span>';
           tag.remove();
         }
       });
+      camera.after(film).after(lens);
     });
   };
 
