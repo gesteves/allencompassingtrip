@@ -45,4 +45,7 @@
   .m-entry__meta {
     color: $text-color;
   }
+  .m-entry__body.caption {
+    color: $alt-color;
+  }
 }

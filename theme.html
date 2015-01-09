@@ -91,6 +91,11 @@
                       <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
                     </a>
                   {/block:Date}
+                  {block:ContentSource}
+                    <a class="m-entry__meta-source" href="{SourceURL}">
+                      {SourceTitle}
+                    </a>
+                  {/block:ContentSource}
                   {block:Exif}
                     <span class="m-exif">
                       {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
@@ -114,13 +119,13 @@
           {block:Photoset}
             <article class="m-entry photo">
               {block:Photos}
-                <div class="m-entry__photo-container">
+                <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
                   <a href="{Permalink}">
                     <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
                   </a>
                 </div>
                 {block:Caption} 
-                  <div class="m-entry__body">
+                  <div class="m-entry__body caption">
                     <p>{Caption}</p>
                   </div>
                 {/block:Caption}
@@ -137,6 +142,11 @@
                       <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
                     </a>
                   {/block:Date}
+                  {block:ContentSource}
+                    <a class="m-entry__meta-source" href="{SourceURL}">
+                      {SourceTitle}
+                    </a>
+                  {/block:ContentSource}
                 </p>
                 {block:HasTags}
                 <p class="m-tags">

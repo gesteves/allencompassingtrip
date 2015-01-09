@@ -2,7 +2,7 @@ $m : '.m-tags';
 
 #{$m} {
   font-size: 1.4rem;
-  line-height: 1.7142857143;
+  line-height: (2.4/1.4);
   margin: 0 auto;
   max-width: $bp-l;
   padding: 0;
