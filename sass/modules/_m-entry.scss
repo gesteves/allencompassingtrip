@@ -1,7 +1,7 @@
 $m : '.m-entry';
 
 #{$m} {
-  margin: 9.6rem 0;
+  margin: 20vw 0;
   width: 100%;
   p,
   ul,
@@ -66,7 +66,7 @@ $m : '.m-entry';
   &:last-of-type {
     margin-bottom: 4.8rem;
   }
-  @media (min-width: $bp-m) {
+  @media (min-width: $bp-l) {
     margin: 19.2rem 0;
   }
 }
