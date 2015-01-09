@@ -1,0 +1,48 @@
+@mixin theme-colors($background-color, $text-color, $alt-color, $border-color) {
+  background-color: $background-color;
+  color: $text-color;
+  .m-header,
+  .m-pagination,
+  .m-entry__meta {
+    a:link, a:visited {
+      color: $text-color;
+    }
+    a:hover, a:active {
+      color: $color-links;
+    }
+  }
+  .m-exif {
+    span {
+      color: $text-color;
+    }
+    span:before {
+      color: $alt-color;
+    }
+  }
+  .m-tags {
+    color: $alt-color;
+    a[rel="tag"]:before {
+      color: $alt-color;
+    }
+    a:link, a:visited {
+      color: $alt-color;
+    }
+    a:hover, a:active {
+      color: $color-links;
+    }
+  }
+  .m-pagination {
+    p span {
+      color: $alt-color;
+    }
+  }
+  .m-entry__body blockquote {
+    border-color: $border-color;
+    p:first-child:before {
+      color: $text-color;
+    }
+  }
+  .m-entry__meta {
+    color: $text-color;
+  }
+}

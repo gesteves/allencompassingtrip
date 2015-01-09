@@ -40,11 +40,20 @@ module.exports = function(grunt) {
         },
       }
     },
-    compass: {
+    sass: {
       dist: {
         options: {
-          config: 'config.rb'
+          style: 'expanded'
+        },
+        files: {
+          'build/stylesheets/main.css': 'sass/main.scss'
         }
+      }
+    },
+    autoprefixer: {
+      single_file: {
+        src: 'build/stylesheets/main.css',
+        dest: 'build/stylesheets/main.css'
       }
     },
     aws: grunt.file.readJSON('grunt-aws.json'),
@@ -66,8 +75,8 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['<%= jshint.files %>', 'sass/*.scss'],
-      tasks: ['jshint', 'concat', 'uglify', 'compass', 's3']
+      files: ['<%= jshint.files %>', 'sass/*.scss', 'sass/*/*.scss'],
+      tasks: ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3']
     }
   });
 
@@ -75,9 +84,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-s3');
 
   grunt.registerTask('default', 'watch');
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify', 'compass', 's3']);
+  grunt.registerTask('build', ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3']);
 };

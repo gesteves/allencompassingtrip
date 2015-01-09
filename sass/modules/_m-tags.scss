@@ -1,0 +1,23 @@
+$m : '.m-tags';
+
+#{$m} {
+  font-size: 1.4rem;
+  line-height: 1.7142857143;
+  margin: 0 auto;
+  max-width: $bp-l;
+  padding: 0;
+  width: 100%;
+  a[rel="tag"] {
+    margin-right: 3px;
+    text-transform: lowercase;
+    &:before {
+      content: '#';
+    }
+  }
+  a:link, a:visited {
+    border: none;
+  }
+  a:hover, a:active {
+    border: none;
+  }
+}

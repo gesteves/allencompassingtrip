@@ -1,0 +1,3 @@
+.light {
+  @include theme-colors($theme-light-background, $theme-light-text, $theme-light-text-alt, $theme-light-border);
+}
