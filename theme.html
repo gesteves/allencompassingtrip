@@ -83,34 +83,6 @@
               <div class="m-entry__body">
                 {Caption}
               </div>
-              <div class="m-entry__meta">
-                <p>
-                  {block:Date}
-                    Published on 
-                    <a href="{Permalink}" rel="bookmark">
-                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
-                    </a>
-                  {/block:Date}
-                  {block:ContentSource}
-                    <span class="m-entry__meta-source">Source</span>
-                    <a href="{SourceURL}">
-                      {SourceTitle}
-                    </a>
-                  {/block:ContentSource}
-                  {block:Exif}
-                    <span class="m-exif">
-                      {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
-                    </span>
-                  {/block:Exif}
-                </p>
-                {block:HasTags}
-                  <p class="m-tags">
-                    {block:Tags}
-                      <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-                    {/block:Tags}
-                  </p>
-                {/block:HasTags}
-              </div>
           {/block:Photo}
 
           {block:Photoset}
@@ -131,30 +103,37 @@
               <div class="m-entry__body">
                 {Caption}
               </div>
-              <div class="m-entry__meta">
-                <p>
-                  {block:Date}
-                    Published on 
-                    <a href="{Permalink}" rel="bookmark">
-                      <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
-                    </a>
-                  {/block:Date}
-                  {block:ContentSource}
-                    <span class="m-entry__meta-source">Source</span>
-                    <a href="{SourceURL}">
-                      {SourceTitle}
-                    </a>
-                  {/block:ContentSource}
-                </p>
-                {block:HasTags}
+            {/block:Photoset}
+          {block:Date}
+            <div class="m-entry__meta">
+              <p>
+                Published on 
+                <a href="{Permalink}" rel="bookmark">
+                  <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
+                </a>
+                {block:ContentSource}
+                  <span class="m-entry__meta-source">Source</span>
+                  <a href="{SourceURL}">
+                    {SourceTitle}
+                  </a>
+                {/block:ContentSource}
+                {block:Photo}
+                  {block:Exif}
+                    <span class="m-exif">
+                      {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
+                    </span>
+                  {/block:Exif}
+                {/block:Photo}
+              </p>
+              {block:HasTags}
                 <p class="m-tags">
                   {block:Tags}
                     <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
                   {/block:Tags}
                 </p>
-                {/block:HasTags}
-              </div>
-            {/block:Photoset}
+              {/block:HasTags}
+            </div>
+          {/block:Date}
         </article> 
         {/block:Posts}
         
