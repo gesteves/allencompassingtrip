@@ -104,7 +104,7 @@ $m : '.m-entry';
 #{$m}.text {
   margin: 0 auto;
   max-width: $bp-l;
-  padding: 0 1rem;
+  padding: 0 2rem;
   text-align: left;
   h1 {
     font-size: 2.4rem;
@@ -121,7 +121,7 @@ $m : '.m-entry';
 
 #{$m}.photo {
   #{$m}__body {
-    padding: 0 1rem;
+    padding: 0 2rem;
     text-align: center;
   }
 }
@@ -152,7 +152,7 @@ $m : '.m-entry';
 
 #{$m}__meta {
   font-weight: 400;
-  padding: 0 1rem;
+  padding: 0 2rem;
   margin: 0 auto;
   max-width: $bp-l;
   p {
