@@ -7,8 +7,8 @@
     "grunt-contrib-concat": "~0.4.0",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-watch": "~0.6.0",
-    "grunt-s3": "^0.2.0-alpha.3",
     "grunt-contrib-sass": "^0.8.1",
-    "grunt-autoprefixer": "^2.1.0"
+    "grunt-autoprefixer": "^2.1.0",
+    "grunt-aws": "^0.4.0"
   }
 }

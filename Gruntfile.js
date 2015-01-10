@@ -59,19 +59,13 @@ module.exports = function(grunt) {
     aws: grunt.file.readJSON('grunt-aws.json'),
     s3: {
       options: {
-        key: '<%= aws.key %>',
-        secret: '<%= aws.secret %>',
-        bucket: '<%= aws.bucket %>',
-        access: 'public-read'
+        accessKeyId: '<%= aws.key %>',
+        secretAccessKey: '<%= aws.secret %>',
+        bucket:'<%= aws.bucket %>'
       },
-      dist: {
-        upload: [
-          {
-            rel: 'build',
-            src: 'build/**/*',
-            dest: '/'
-          }
-        ]
+      build: {
+        cwd: 'build/',
+        src: '**'
       }
     },
     watch: {
@@ -86,7 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-s3');
+  grunt.loadNpmTasks('grunt-aws');
 
   grunt.registerTask('default', 'watch');
   grunt.registerTask('build', ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3']);
