@@ -1,7 +1,9 @@
 $m : '.m-entry';
 
 #{$m} {
-  margin: 20vw 0;
+  max-width: $bp-l;
+  margin: 20vw auto;
+  padding: 0 2rem;
   width: 100%;
   p,
   ul,
@@ -67,7 +69,7 @@ $m : '.m-entry';
     margin-bottom: 4.8rem;
   }
   @media (min-width: $bp-max) {
-    margin: ($bp-max * 0.20) 0;
+    margin: ($bp-max * 0.20) auto;
   }
   &.hidden {
     display: none;
@@ -104,15 +106,6 @@ $m : '.m-entry';
   }
 }
 
-#{$m}.text,
-#{$m}.link {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: $bp-l;
-  padding: 0 2rem;
-  text-align: left;
-}
-
 #{$m}.text {
   h1 {
     font-size: 2.4rem;
@@ -137,6 +130,8 @@ $m : '.m-entry';
 }
 
 #{$m}.photo {
+  max-width: $bp-max;
+  padding: 0;
   #{$m}__body {
     padding: 0 2rem;
     text-align: center;
