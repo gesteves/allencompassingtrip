@@ -106,7 +106,8 @@ $m : '.m-entry';
 
 #{$m}.text,
 #{$m}.link {
-  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
   max-width: $bp-l;
   padding: 0 2rem;
   text-align: left;
