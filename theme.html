@@ -87,118 +87,117 @@
         <h1><a href="/">{title}</a></h1>
         <h2>{Description}</h2>
       </header>
-      <section>
-        {block:NoSearchResults}
-          <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
-        {/block:NoSearchResults}
-        {block:Posts}
-        
-          {block:Text}
-          <article class="m-entry text">
-              {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
-              <div class="m-entry__body">{Body}
-                {block:More}
-                  <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
-                {/block:More}
-              </div>
-          {/block:Text}
-          
-          {block:Photo}
-            <article class="m-entry photo">
-              <div class="m-entry__photo-container">
-                <a href="{Permalink}">
-                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-                </a>
-              </div>
-              <div class="m-entry__body">
-                {Caption}
-              </div>
-          {/block:Photo}
 
-          {block:Photoset}
-            <article class="m-entry photo">
-              {block:Photos}
-                <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
-                  <a href="{Permalink}">
-                    <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-                  </a>
-                </div>
-                {block:Caption} 
-                  <div class="m-entry__body caption">
-                    <p>{Caption}</p>
-                  </div>
-                {/block:Caption}
-              {/block:Photos}
-
-              <div class="m-entry__body">
-                {Caption}
-              </div>
-            {/block:Photoset}
-          {block:Date}
-            <div class="m-entry__meta">
-              <p>
-                Published on 
-                <a href="{Permalink}" rel="bookmark">
-                  <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
-                </a>
-                {block:ContentSource}
-                  <span class="m-entry__meta-source">Source</span>
-                  <a href="{SourceURL}">
-                    {SourceTitle}
-                  </a>
-                {/block:ContentSource}
-                {block:Photo}
-                  {block:Exif}
-                    <span class="m-exif">
-                      {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
-                    </span>
-                  {/block:Exif}
-                {/block:Photo}
-              </p>
-              {block:HasTags}
-                <p class="m-tags">
-                  {block:Tags}
-                    <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-                  {/block:Tags}
-                </p>
-              {/block:HasTags}
+      {block:NoSearchResults}
+        <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
+      {/block:NoSearchResults}
+      {block:Posts}
+      
+        {block:Text}
+        <article class="m-entry text">
+            {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
+            <div class="m-entry__body">{Body}
+              {block:More}
+                <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
+              {/block:More}
             </div>
-          {/block:Date}
-        </article> 
-        {/block:Posts}
+        {/block:Text}
         
-        <nav class="m-pagination">
-          <p>
-            {block:Pagination}
-              {block:PreviousPage}
-              <a href="{PreviousPage}" rel="next">&lsaquo; Newer</a>
-              {/block:PreviousPage}
-              {block:JumpPagination length="5"}
-                {block:CurrentPage}
-                    <span>{PageNumber}</span>
-                {/block:CurrentPage}
+        {block:Photo}
+          <article class="m-entry photo">
+            <div class="m-entry__photo-container">
+              <a href="{Permalink}">
+                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+              </a>
+            </div>
+            <div class="m-entry__body">
+              {Caption}
+            </div>
+        {/block:Photo}
 
-                {block:JumpPage}
-                    <a href="{URL}">{PageNumber}</a>
-                {/block:JumpPage}
-              {/block:JumpPagination}
-              {block:NextPage}
-              <a href="{NextPage}" rel="prev">Older &rsaquo;</a> 
-              {/block:NextPage}
-            {/block:Pagination}
+        {block:Photoset}
+          <article class="m-entry photo">
+            {block:Photos}
+              <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
+                <a href="{Permalink}">
+                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+                </a>
+              </div>
+              {block:Caption} 
+                <div class="m-entry__body caption">
+                  <p>{Caption}</p>
+                </div>
+              {/block:Caption}
+            {/block:Photos}
 
-            {block:PermalinkPagination}
-              {block:NextPost}
-              <a href="{NextPost}" rel="next">&lsaquo; Newer</a>
-              {/block:NextPost}
+            <div class="m-entry__body">
+              {Caption}
+            </div>
+          {/block:Photoset}
+        {block:Date}
+          <div class="m-entry__meta">
+            <p>
+              Published on 
+              <a href="{Permalink}" rel="bookmark">
+                <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
+              </a>
+              {block:ContentSource}
+                <span class="m-entry__meta-source">Source</span>
+                <a href="{SourceURL}">
+                  {SourceTitle}
+                </a>
+              {/block:ContentSource}
+              {block:Photo}
+                {block:Exif}
+                  <span class="m-exif">
+                    {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
+                  </span>
+                {/block:Exif}
+              {/block:Photo}
+            </p>
+            {block:HasTags}
+              <p class="m-tags">
+                {block:Tags}
+                  <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+                {/block:Tags}
+              </p>
+            {/block:HasTags}
+          </div>
+        {/block:Date}
+      </article> 
+      {/block:Posts}
+      
+      <nav class="m-pagination">
+        <p>
+          {block:Pagination}
+            {block:PreviousPage}
+            <a href="{PreviousPage}" rel="next">&lsaquo; Newer</a>
+            {/block:PreviousPage}
+            {block:JumpPagination length="5"}
+              {block:CurrentPage}
+                  <span>{PageNumber}</span>
+              {/block:CurrentPage}
 
-              {block:PreviousPost}
-              <a href="{PreviousPost}" rel="prev">Older &rsaquo;</a>
-              {/block:PreviousPost}
-            {/block:PermalinkPagination}
-          </p>
-        </nav>
-      </section>
+              {block:JumpPage}
+                  <a href="{URL}">{PageNumber}</a>
+              {/block:JumpPage}
+            {/block:JumpPagination}
+            {block:NextPage}
+            <a href="{NextPage}" rel="prev">Older &rsaquo;</a> 
+            {/block:NextPage}
+          {/block:Pagination}
+
+          {block:PermalinkPagination}
+            {block:NextPost}
+            <a href="{NextPost}" rel="next">&lsaquo; Newer</a>
+            {/block:NextPost}
+
+            {block:PreviousPost}
+            <a href="{PreviousPost}" rel="prev">Older &rsaquo;</a>
+            {/block:PreviousPost}
+          {/block:PermalinkPagination}
+        </p>
+      </nav>
 
       <footer class="m-footer">
         <div class="l-container">
