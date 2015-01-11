@@ -51,4 +51,7 @@
   .m-entry__meta-source {
     color: $alt-color;
   }
+  .m-entry.answer .m-entry__body {
+    border-color: $border-color;
+  }
 }

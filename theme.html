@@ -118,7 +118,7 @@
         {/block:Link}
 
         {block:Quote}
-          <blockquote class="m-entry__quote {Length}">
+          <blockquote class="m-entry__main-quote {Length}">
             <p>{Quote}</p>
           </blockquote>
           {block:Source}
@@ -127,6 +127,16 @@
             </div>
           {/block:Source}
         {/block:Quote}
+
+        {block:Answer}
+          <blockquote class="m-entry__main-quote medium">
+            <p>{Question}</p>
+          </blockquote>
+          <p>&mdash;{Asker}</p>
+          <div class="m-entry__body">
+            {Replies}
+          </div>
+        {/block:Answer}
         
         {block:Photo}
           <div class="m-entry__photo-container">
@@ -231,6 +241,7 @@
                 {text:Author Name}
               {block:ifAuthorWebsite}</a>{/block:ifAuthorWebsite} &bull;
             {/block:ifAuthorName}
+            {block:AskEnabled}<a href="/ask">{AskLabel}</a> &bull;{/block:AskEnabled}
             <a href="/archive" rel="archives">Archive</a> &bull;
             <a href="/random">Random</a> &bull;
             <a href="{RSS}">RSS</a> &bull;
