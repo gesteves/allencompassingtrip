@@ -158,8 +158,10 @@ $m : '.m-entry';
 
 #{$m}__photo {
   display: inline-block;
-  max-height: 100vh;
   max-width: 100%;
+  &.fit-window {
+    max-height: 100vh;
+  }
 }
 
 #{$m}__meta {
