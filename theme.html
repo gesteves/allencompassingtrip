@@ -95,39 +95,38 @@
       
       <article class="m-entry {PostType} {TagsAsClasses}">
         {block:Text}
-            {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
-            <div class="m-entry__body">{Body}
-              {block:More}
-                <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
-              {/block:More}
-            </div>
+          {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
+          <div class="m-entry__body">{Body}
+            {block:More}
+              <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
+            {/block:More}
+          </div>
         {/block:Text}
-
         
         {block:Photo}
-            <div class="m-entry__photo-container">
-              <a href="{Permalink}">
-                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-              </a>
-            </div>
-            <div class="m-entry__body">
-              {Caption}
-            </div>
+          <div class="m-entry__photo-container">
+            <a href="{Permalink}">
+              <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+            </a>
+          </div>
+          <div class="m-entry__body">
+            {Caption}
+          </div>
         {/block:Photo}
 
         {block:Photoset}
-            {block:Photos}
-              <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
-                <a href="{Permalink}">
-                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-                </a>
+          {block:Photos}
+            <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
+              <a href="{Permalink}">
+                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
+              </a>
+            </div>
+            {block:Caption} 
+              <div class="m-entry__body caption">
+                <p>{Caption}</p>
               </div>
-              {block:Caption} 
-                <div class="m-entry__body caption">
-                  <p>{Caption}</p>
-                </div>
-              {/block:Caption}
-            {/block:Photos}
+            {/block:Caption}
+          {/block:Photos}
           <div class="m-entry__body">
             {Caption}
           </div>
