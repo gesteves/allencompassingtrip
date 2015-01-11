@@ -104,17 +104,30 @@ $m : '.m-entry';
   }
 }
 
-#{$m}.text {
+#{$m}.text,
+#{$m}.link {
   margin: 0 auto;
   max-width: $bp-l;
   padding: 0 2rem;
   text-align: left;
+}
+
+#{$m}.text {
   h1 {
     font-size: 2.4rem;
     line-height: 1;
     margin: 1rem 0;
   }
   h2 {
+    font-size: 2rem;
+    font-style: italic;
+    line-height: 1.2;
+    margin: 1.2rem 0;
+  }
+}
+
+#{$m}.link {
+  h1 {
     font-size: 2rem;
     font-style: italic;
     line-height: 1.2;

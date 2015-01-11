@@ -102,6 +102,15 @@
             {/block:More}
           </div>
         {/block:Text}
+
+        {block:Link}
+          <h1><a href="{URL}" class="m-entry__title" {Target}>{Name} &rarr;</a></h1>
+          {block:Description}
+            <div class="m-entry__body">
+              {Description}
+            </div>
+          {/block:Description}
+        {/block:Link}
         
         {block:Photo}
           <div class="m-entry__photo-container">
