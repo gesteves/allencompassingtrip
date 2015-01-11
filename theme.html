@@ -98,7 +98,7 @@
       {/block:NoSearchResults}
       {block:Posts}
       
-      <article class="m-entry {PostType} {TagsAsClasses}">
+      <article class="m-entry {PostType}">
         {block:Text}
           {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
           <div class="m-entry__body">{Body}
@@ -116,6 +116,17 @@
             </div>
           {/block:Description}
         {/block:Link}
+
+        {block:Quote}
+          <blockquote class="m-entry__quote {Length}">
+            <p>{Quote}</p>
+          </blockquote>
+          {block:Source}
+            <div class="m-entry__body">
+              <p>{Source}</p>
+            </div>
+          {/block:Source}
+        {/block:Quote}
         
         {block:Photo}
           <div class="m-entry__photo-container">

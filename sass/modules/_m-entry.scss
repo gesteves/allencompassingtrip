@@ -75,9 +75,6 @@ $m : '.m-entry';
   @media (min-width: $bp-max) {
     margin: ($bp-max * 0.20) auto;
   }
-  &.hidden {
-    display: none;
-  }
 }
 
 #{$m}__body {
@@ -91,7 +88,7 @@ $m : '.m-entry';
     padding-left: 0.5rem;
     position: relative;
     p:first-child:before {
-      content: '\201c';
+      content: '“';
       font-size: 3.6rem;
       left: -20px;
       position: absolute;
@@ -130,6 +127,51 @@ $m : '.m-entry';
     font-style: italic;
     line-height: 1.2;
     margin: 1.2rem 0;
+  }
+}
+
+#{$m}.quote {
+  blockquote {
+    margin: 0;
+    padding: 0;
+    p {
+      font-style: italic;
+    }
+    p:first-of-type:before {
+      content: '“';
+    }
+    p:last-of-type:after {
+      content: '”';
+    }
+    p:empty:before,
+    p:empty:after {
+      content: none;
+    }
+    &.short p {
+      font-size: 4.8rem;
+      line-height: 1;
+      margin-top: 1rem;
+    }
+    &.medium p {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-top: 1rem;
+    }
+    &.long p {
+      font-size: 2rem;
+      line-height: 2;
+      margin-top: 2rem;
+    }
+    &.short,
+    &.medium,
+    &.long {
+      p + p {
+        margin-top: 0;
+      }
+    }
+  }
+  #{$m}__body p:first-of-type:before {
+    content: '—';
   }
 }
 
