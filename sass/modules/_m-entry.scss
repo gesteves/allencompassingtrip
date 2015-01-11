@@ -66,6 +66,29 @@ $m : '.m-entry';
     line-height: 1.5;
     margin: 1.5rem 0;
   }
+  table {
+    border: 1px solid;
+    margin: 2.4rem 0;
+    width: 100%;
+  }
+  tr {
+    border-top: 1px solid;
+  }
+  td {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    padding: 0.5rem 1rem;
+    vertical-align: middle;
+    iframe {
+      vertical-align: middle;
+    }
+    &.align-right {
+      text-align: right;
+    }
+    &.align-center {
+      text-align: center;
+    }
+  }
   &:first-of-type {
     margin-top: 4.8rem;
   }

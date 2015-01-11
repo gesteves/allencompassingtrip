@@ -1,4 +1,4 @@
-@mixin theme-colors($background-color, $text-color, $alt-color, $border-color) {
+@mixin theme-colors($background-color, $text-color, $alt-color, $border-color, $alt-background-color) {
   background-color: $background-color;
   color: $text-color;
   .m-header,
@@ -53,5 +53,13 @@
   }
   .m-entry.answer .m-entry__body {
     border-color: $border-color;
+  }
+  .m-entry table {
+    &, tr {
+      border-color: $border-color;
+    }
+  }
+  .m-entry table tr:nth-child(even) {
+    background-color: $alt-background-color;
   }
 }

@@ -1,3 +1,3 @@
 .dark {
-  @include theme-colors($theme-dark-background, $theme-dark-text, $theme-dark-text-alt, $theme-dark-border);
+  @include theme-colors($theme-dark-background, $theme-dark-text, $theme-dark-text-alt, $theme-dark-border, $theme-dark-background-alt);
 }
