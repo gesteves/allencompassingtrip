@@ -3,7 +3,7 @@ $m : '.m-entry';
 #{$m} {
   max-width: $bp-l;
   margin: 20vw auto;
-  padding: 0 2rem;
+  padding: 0 4rem;
   width: 100%;
   p,
   ul,
@@ -16,9 +16,13 @@ $m : '.m-entry';
   p {
     margin: 1.5rem 0 0 0;
   }
+  p + p {
+    margin-top: 0;
+    text-indent: 1.5rem;
+  }
   ul,
   ol {
-    margin: 1.5rem;
+    padding: 0;
   }
   ul li {
     list-style-type: disc;
