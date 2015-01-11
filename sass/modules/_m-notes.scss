@@ -1,0 +1,59 @@
+$m : '.m-notes';
+
+#{$m} {
+  margin: 0 auto 2.4rem auto;
+  max-width: $bp-xs;
+  width: 100%;
+}
+
+#{$m} .notes {
+  border-top: 2px solid;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  .avatar_frame {
+    border: none;
+    display: block;
+    float: left;
+    font-size: 0;
+    height: 2.4rem;
+    margin-right: 1rem;
+    vertical-align: middle;
+    width: 2.4rem;
+  }
+  .action {
+    display: block;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-left: 3.4rem;
+  }
+  .note {
+    border-bottom: 1px solid;
+    padding: 1rem;
+  }
+  .answer_content {
+    @include wrap-in-quotes;
+    border-top: 1px solid;
+    display: block;
+    line-height: 1.5;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+  .more_notes_link_container {
+    border-top: 1px solid;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+  blockquote {
+    @include wrap-in-quotes;
+    border-top: 1px solid;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin: 1rem 0 0 3.4rem;
+    padding-top: 1rem;
+    a {
+      border: none;
+    }
+  }
+}

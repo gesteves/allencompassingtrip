@@ -3,7 +3,8 @@
   color: $text-color;
   .m-header,
   .m-pagination,
-  .m-entry__meta {
+  .m-entry__meta,
+  .m-notes blockquote {
     a:link, a:visited {
       color: $text-color;
     }
@@ -14,9 +15,6 @@
   .m-exif {
     span {
       color: $text-color;
-    }
-    span:before {
-      color: $alt-color;
     }
   }
   .m-tags {
@@ -31,11 +29,6 @@
       color: $color-links;
     }
   }
-  .m-pagination {
-    p span {
-      color: $alt-color;
-    }
-  }
   .m-entry__body blockquote {
     border-color: $border-color;
     p:first-child:before {
@@ -45,21 +38,43 @@
   .m-entry__meta {
     color: $text-color;
   }
-  .m-entry__body.caption {
+  .has-separator:before,
+  .m-entry__body.caption,
+  .m-entry__meta-source,
+  .m-pagination p span,
+  .m-exif span:before {
     color: $alt-color;
   }
-  .m-entry__meta-source {
-    color: $alt-color;
-  }
-  .m-entry.answer .m-entry__body {
+  .m-entry.answer .m-entry__body,
+  .m-entry table tr,
+  .m-notes .notes,
+  .m-notes .note,
+  .m-notes .answer_content,
+  .m-notes blockquote {
     border-color: $border-color;
   }
-  .m-entry table {
-    &, tr {
-      border-color: $border-color;
-    }
-  }
-  .m-entry table tr:nth-child(even) {
+  .m-notes .note:nth-child(odd),
+  .m-entry table tr:nth-child(odd) {
     background-color: $alt-background-color;
+  }
+}
+
+@mixin wrap-in-quotes($type: 'double') {
+  @if $type == 'double' {
+    text-indent: -0.3rem;
+    &:before {
+      content: '“';
+    }
+    &:after {
+      content: '”';
+    }
+  } @else if $type == 'single' {
+    text-indent: -0.3rem;
+    &:before {
+      content: '‘';
+    }
+    &:after {
+      content: '’';
+    }
   }
 }

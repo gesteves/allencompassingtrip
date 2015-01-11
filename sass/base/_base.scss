@@ -35,6 +35,10 @@ a {
   transition: color 0.25s linear, border-color 0.25s linear;
 }
 
+.has-separator:before {
+  content: "• ";
+}
+
 a:link, a:visited {
   color: $color-links;
   border-bottom: 1px solid transparentize($color-links, 1);

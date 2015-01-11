@@ -2,17 +2,18 @@
 <html lang="en" class="light">
   <head>
     <!-- Tumblr theme variables -->
-    <meta name="text:Google Site Verification" content=""/>
-    <meta name="text:Google Profile" content=""/>
-    <meta name="text:Facebook Admin" content=""/>
-    <meta name="text:Typekit" content=""/>
-    <meta name="text:S3 Bucket" content=""/>
-    <meta name="text:Analytics" content=""/>
-    <meta name="text:Author Name" content=""/>
-    <meta name="text:Author Website" content=""/>
-    <meta name="text:Author Email" content=""/>
-    <meta name="select:Photo Size" content="full-size" title="Full size">
-    <meta name="select:Photo Size" content="fit-window" title="Fit in window">
+    <meta name="text:Google Site Verification" content="" />
+    <meta name="text:Google Profile" content="" />
+    <meta name="text:Facebook Admin" content="" />
+    <meta name="text:Typekit" content="" />
+    <meta name="text:S3 Bucket" content="" />
+    <meta name="text:Analytics" content="" />
+    <meta name="text:Author Name" content="" />
+    <meta name="text:Author Website" content="" />
+    <meta name="text:Author Email" content="" />
+    <meta name="select:Photo Size" content="full-size" title="Full size"/ >
+    <meta name="select:Photo Size" content="fit-window" title="Fit in window" />
+    <meta name="if:Show Notes" content="0" />
     <!-- End Tumblr theme variables -->
     {block:ifAnalytics}
       <script>
@@ -96,108 +97,122 @@
       {block:NoSearchResults}
         <h1 class="no-results">Sorry, no results for &#8220;{SearchQuery}&#8221;</h1>
       {/block:NoSearchResults}
-      {block:Posts}
       
-      <article class="m-entry {PostType}">
-        {block:Text}
-          {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
-          <div class="m-entry__body">{Body}
-            {block:More}
-              <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
-            {/block:More}
-          </div>
-        {/block:Text}
-
-        {block:Link}
-          <h1><a href="{URL}" class="m-entry__title" {Target}>{Name} &rarr;</a></h1>
-          {block:Description}
-            <div class="m-entry__body">
-              {Description}
+      {block:Posts}
+        <article class="m-entry {PostType}">
+          {block:Text}
+            {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
+            <div class="m-entry__body">{Body}
+              {block:More}
+                <p class="m-entry__more"><a href="{Permalink}">Read more &rsaquo;</a></p>
+              {/block:More}
             </div>
-          {/block:Description}
-        {/block:Link}
+          {/block:Text}
 
-        {block:Quote}
-          <blockquote class="m-entry__main-quote {Length}">
-            <p>{Quote}</p>
-          </blockquote>
-          {block:Source}
-            <div class="m-entry__body">
-              <p>{Source}</p>
-            </div>
-          {/block:Source}
-        {/block:Quote}
-
-        {block:Answer}
-          <blockquote class="m-entry__main-quote medium">
-            <p>{Question}</p>
-          </blockquote>
-          <p>&mdash;{Asker}</p>
-          <div class="m-entry__body">
-            {Replies}
-          </div>
-        {/block:Answer}
-        
-        {block:Photo}
-          <div class="m-entry__photo-container">
-            <a href="{Permalink}">
-              <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
-            </a>
-          </div>
-          <div class="m-entry__body">
-            {Caption}
-          </div>
-        {/block:Photo}
-
-        {block:Photoset}
-          {block:Photos}
-            <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
-              <a href="{Permalink}">
-                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
-              </a>
-            </div>
-            {block:Caption} 
-              <div class="m-entry__body caption">
-                <p>{Caption}</p>
+          {block:Link}
+            <h1><a href="{URL}" class="m-entry__title" {Target}>{Name} &rarr;</a></h1>
+            {block:Description}
+              <div class="m-entry__body">
+                {Description}
               </div>
-            {/block:Caption}
-          {/block:Photos}
-          <div class="m-entry__body">
-            {Caption}
-          </div>
-        {/block:Photoset}
+            {/block:Description}
+          {/block:Link}
 
-        {block:Date}
-          <div class="m-entry__meta">
-            <p>
-              Published on 
-              <a href="{Permalink}" rel="bookmark">
-                <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
+          {block:Quote}
+            <blockquote class="m-entry__main-quote {Length}">
+              <p>{Quote}</p>
+            </blockquote>
+            {block:Source}
+              <div class="m-entry__body">
+                <p>{Source}</p>
+              </div>
+            {/block:Source}
+          {/block:Quote}
+
+          {block:Answer}
+            <blockquote class="m-entry__main-quote medium">
+              <p>{Question}</p>
+            </blockquote>
+            <p>&mdash;{Asker}</p>
+            <div class="m-entry__body">
+              {Replies}
+            </div>
+          {/block:Answer}
+          
+          {block:Photo}
+            <div class="m-entry__photo-container">
+              <a href="{Permalink}">
+                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
               </a>
-              {block:ContentSource}
-                <span class="m-entry__meta-source">Source</span>
-                <a href="{SourceURL}">
-                  {SourceTitle}
+            </div>
+            <div class="m-entry__body">
+              {Caption}
+            </div>
+          {/block:Photo}
+
+          {block:Photoset}
+            {block:Photos}
+              <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
+                <a href="{Permalink}">
+                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
                 </a>
-              {/block:ContentSource}
-              {block:Photo}
-                {block:Exif}
-                  <span class="m-exif">
-                    {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
-                  </span>
-                {/block:Exif}
-              {/block:Photo}
-            </p>
-            {block:HasTags}
-              <p class="m-tags">
-                {block:Tags}
-                  <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
-                {/block:Tags}
+              </div>
+              {block:Caption} 
+                <div class="m-entry__body caption">
+                  <p>{Caption}</p>
+                </div>
+              {/block:Caption}
+            {/block:Photos}
+            <div class="m-entry__body">
+              {Caption}
+            </div>
+          {/block:Photoset}
+
+          {block:Date}
+            <div class="m-entry__meta">
+              <p>
+                Published on 
+                <a href="{Permalink}" rel="bookmark">
+                  <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
+                </a>
+                {block:IfShowNotes}
+                  {block:NoteCount}
+                  <a href="{Permalink}#notes" class="has-separator">{NoteCountWithLabel}</a>
+                  {/block:NoteCount}
+                {/block:IfShowNotes}
+                {block:ContentSource}
+                  <span class="has-separator">Source</span>
+                  <a href="{SourceURL}">
+                    {SourceTitle}
+                  </a>
+                {/block:ContentSource}
+                {block:Photo}
+                  {block:Exif}
+                    <span class="m-exif">
+                      {block:Camera}<span class="m-exif__camera">{Camera}</span>{/block:Camera}
+                    </span>
+                  {/block:Exif}
+                {/block:Photo}
               </p>
-            {/block:HasTags}
-          </div>
-        {/block:Date}
-      </article> 
+              {block:HasTags}
+                <p class="m-tags">
+                  {block:Tags}
+                    <a href="{TagURL}" title="Posts tagged “{PlaintextTag}”" rel="tag">{Tag}</a>
+                  {/block:Tags}
+                </p>
+              {/block:HasTags}
+            </div>
+          {/block:Date}
+        </article>
+        {block:Permalink}
+          {block:IfShowNotes}
+            {block:NoteCount}
+              <div class="m-notes" id="notes">
+                {PostNotes-64}
+              </div>
+            {/block:NoteCount}
+          {/block:IfShowNotes}
+        {/block:Permalink}
       {/block:Posts}
       
       <nav class="m-pagination">

@@ -149,10 +149,6 @@ $m : '.m-entry';
   }
 }
 
-#{$m}__meta-source:before {
-  content: "• ";
-}
-
 #{$m}__main-quote {
   margin: 0;
   padding: 0;
@@ -161,6 +157,7 @@ $m : '.m-entry';
   }
   p:first-of-type:before {
     content: '“';
+    text-indent: -0.3rem;
   }
   p:last-of-type:after {
     content: '”';
