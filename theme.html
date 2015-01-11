@@ -10,7 +10,6 @@
     <meta name="text:Analytics" content="" />
     <meta name="text:Author Name" content="" />
     <meta name="text:Author Website" content="" />
-    <meta name="text:Author Email" content="" />
     <meta name="select:Photo Size" content="full-size" title="Full size"/ >
     <meta name="select:Photo Size" content="fit-window" title="Fit in window" />
     <meta name="if:Show Notes" content="0" />
@@ -256,11 +255,13 @@
                 {text:Author Name}
               {block:ifAuthorWebsite}</a>{/block:ifAuthorWebsite} &bull;
             {/block:ifAuthorName}
+            {block:HasPages}
+              {block:Pages}<a href="{URL}">{Label}</a> &bull; {/block:Pages}
+            {/block:HasPages}
             {block:AskEnabled}<a href="/ask">{AskLabel}</a> &bull;{/block:AskEnabled}
             <a href="/archive" rel="archives">Archive</a> &bull;
             <a href="/random">Random</a> &bull;
             <a href="{RSS}">RSS</a> &bull;
-            {block:ifAuthorEmail}<a href="mailto:{text:Author Email}">Contact</a> &bull;{/block:ifAuthorEmail}
             <a href="/" id="toggle-theme">Toggle colors</a>
           </p>
         </div>
