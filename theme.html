@@ -93,8 +93,8 @@
       {/block:NoSearchResults}
       {block:Posts}
       
+      <article class="m-entry {PostType} {TagsAsClasses}">
         {block:Text}
-        <article class="m-entry text">
             {block:Title}<h1><a href="{Permalink}" class="m-entry__title" rel="bookmark">{Title}</a></h1>{/block:Title}
             <div class="m-entry__body">{Body}
               {block:More}
@@ -102,9 +102,9 @@
               {/block:More}
             </div>
         {/block:Text}
+
         
         {block:Photo}
-          <article class="m-entry photo">
             <div class="m-entry__photo-container">
               <a href="{Permalink}">
                 <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
@@ -116,7 +116,6 @@
         {/block:Photo}
 
         {block:Photoset}
-          <article class="m-entry photo">
             {block:Photos}
               <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
                 <a href="{Permalink}">
@@ -129,11 +128,11 @@
                 </div>
               {/block:Caption}
             {/block:Photos}
+          <div class="m-entry__body">
+            {Caption}
+          </div>
+        {/block:Photoset}
 
-            <div class="m-entry__body">
-              {Caption}
-            </div>
-          {/block:Photoset}
         {block:Date}
           <div class="m-entry__meta">
             <p>
