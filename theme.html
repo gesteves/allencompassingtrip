@@ -12,6 +12,16 @@
     <meta name="text:Author Website" content=""/>
     <meta name="text:Author Email" content=""/>
     <!-- End Tumblr theme variables -->
+    {block:ifAnalytics}
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', '{text:Analytics}', 'auto');
+        ga('send', 'pageview');
+      </script>
+    {/block:ifAnalytics}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     {block:ifGoogleSiteVerification}
@@ -211,18 +221,5 @@
     {block:ifS3Bucket}
       <script src="{text:S3 Bucket}/js/main.min.js"></script>
     {/block:ifS3Bucket}
-    {block:ifAnalytics}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        var input_type = AET.Environment.touch ? 'Touch' : 'No touch';
-        ga('create', '{text:Analytics}', 'auto');
-        ga('set', 'dimension1', input_type);
-        ga('send', 'pageview');
-      </script>
-    {/block:ifAnalytics}
   </body>
 </html>
