@@ -66,14 +66,6 @@ module.exports = function(grunt) {
         src: '**'
       }
     },
-    notify: {
-      build: {
-        options: {
-          title: 'All-Encompassing Trip', // defaults to the name in package.json, or will use project directory's name
-          message: 'Build complete.'
-        }
-      }
-    },
     notify_hooks: {
       options: {
         enabled: true,
@@ -85,7 +77,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>', 'sass/*.scss', 'sass/*/*.scss'],
-      tasks: ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3', 'notify:build']
+      tasks: ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3']
     }
   });
 
@@ -101,5 +93,5 @@ module.exports = function(grunt) {
   grunt.task.run('notify_hooks');
 
   grunt.registerTask('default', 'watch');
-  grunt.registerTask('build', ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3', 'notify:build']);
+  grunt.registerTask('build', ['jshint', 'concat', 'sass', 'autoprefixer', 'uglify', 's3']);
 };
