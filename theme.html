@@ -76,6 +76,9 @@
     {block:ifS3Bucket}
       <link href="{text:S3 Bucket}/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
     {/block:ifS3Bucket}
+    <style type="text/css">
+      {CustomCSS}
+    </style>
     {block:ifTypekit}
       <script type="text/javascript" src="//use.typekit.net/{text:Typekit}.js"></script>
       <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
