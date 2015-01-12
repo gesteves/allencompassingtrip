@@ -42,7 +42,8 @@
   .m-entry__body.caption,
   .m-entry__meta-source,
   .m-pagination p span,
-  .m-exif span:before {
+  .m-exif span:before,
+  .m-entry__source:before {
     color: $alt-color;
   }
   .m-entry.answer .m-entry__body,

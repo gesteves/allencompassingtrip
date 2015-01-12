@@ -144,11 +144,22 @@
             </div>
             {block:Caption}
               <div class="m-entry__body">
-                <p>{Caption}</p>
+                {Caption}
               </div>
             {/block:Caption}
           {/block:Video}
           
+          {block:Audio}
+            <div class="m-entry__embed">
+              {AudioEmbed}
+            </div>
+            {block:Caption}
+              <div class="m-entry__body">
+                {Caption}
+              </div>
+            {/block:Caption}
+          {/block:Audio}
+
           {block:Photo}
             <div class="m-entry__photo-container">
               <a href="{Permalink}">
@@ -191,8 +202,7 @@
                   {/block:NoteCount}
                 {/block:IfShowNotes}
                 {block:ContentSource}
-                  <span class="has-separator">Source</span>
-                  <a href="{SourceURL}">
+                  <a href="{SourceURL}" class="m-entry__source">
                     {SourceTitle}
                   </a>
                 {/block:ContentSource}

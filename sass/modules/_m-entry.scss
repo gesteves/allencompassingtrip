@@ -148,6 +148,10 @@ $m : '.m-entry';
   }
 }
 
+#{$m}__source:before {
+  content: "• Source ";
+}
+
 #{$m}__main-quote {
   margin: 0;
   padding: 0;
@@ -194,6 +198,11 @@ $m : '.m-entry';
       margin-top: 0;
     }
   }
+}
+
+#{$m}__embed {
+  font-size: 0;
+  width: 100%;
 }
 
 #{$m}.text {
@@ -267,8 +276,12 @@ $m : '.m-entry';
   }
 }
 
-#{$m}__embed {
-  @include scale-element;
-  font-size: 0;
-  width: 100%;
+#{$m}.audio {
+  max-width: 500px;
+}
+
+#{$m}.video {
+  #{$m}__embed {
+    @include scale-element;
+  }
 }
