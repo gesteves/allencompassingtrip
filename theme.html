@@ -205,11 +205,6 @@
                 <a href="{Permalink}" rel="bookmark">
                   <time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}" pubdate>{DayOfMonth} {Month} {Year}</time>
                 </a>
-                {block:IfShowNotes}
-                  {block:NoteCount}
-                  <a href="{Permalink}#notes" class="has-separator">{NoteCountWithLabel}</a>
-                  {/block:NoteCount}
-                {/block:IfShowNotes}
                 {block:ContentSource}
                   <a href="{SourceURL}" class="m-entry__source">
                     {SourceTitle}
@@ -232,6 +227,11 @@
                     </span>
                   {/block:Exif}
                 {/block:Photo}
+                {block:IfShowNotes}
+                  {block:NoteCount}
+                  <a href="{Permalink}#notes" class="has-separator">{NoteCountWithLabel}</a>
+                  {/block:NoteCount}
+                {/block:IfShowNotes}
               </p>
               {block:HasTags}
                 <p class="m-tags">
