@@ -55,7 +55,8 @@
     border-color: $border-color;
   }
   .m-notes .note:nth-child(odd),
-  .m-entry table tr:nth-child(odd) {
+  .m-entry table tr:nth-child(odd),
+  .m-entry.chat .m-entry__body p:nth-child(odd) {
     background-color: $alt-background-color;
   }
 }

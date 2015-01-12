@@ -219,7 +219,8 @@ $m : '.m-entry';
   }
 }
 
-#{$m}.link {
+#{$m}.link,
+#{$m}.chat {
   h1 {
     font-size: 2rem;
     font-style: italic;
@@ -283,5 +284,14 @@ $m : '.m-entry';
 #{$m}.video {
   #{$m}__embed {
     @include scale-element;
+  }
+}
+
+#{$m}.chat {
+  p {
+    padding: 0.5rem 1rem;
+    &, & + p {
+      text-indent: 0;
+    }
   }
 }

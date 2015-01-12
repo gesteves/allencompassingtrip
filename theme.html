@@ -160,6 +160,15 @@
             {/block:Caption}
           {/block:Audio}
 
+          {block:Chat}
+            {block:Title}<h1><a href="{Permalink}" class="m-entry__title">{Title}</a></h1>{/block:Title}
+            <div class="m-entry__body">
+              {block:Lines}
+                <p>{block:Label}<b>{Label}</b> {/block:Label}{Line}</p>
+              {/block:Lines}
+            </div>
+          {/block:Chat}
+
           {block:Photo}
             <div class="m-entry__photo-container">
               <a href="{Permalink}">
