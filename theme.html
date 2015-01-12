@@ -137,6 +137,17 @@
               {Replies}
             </div>
           {/block:Answer}
+
+          {block:Video}
+            <div class="m-entry__embed">
+              {Video-700}
+            </div>
+            {block:Caption}
+              <div class="m-entry__body">
+                <p>{Caption}</p>
+              </div>
+            {/block:Caption}
+          {/block:Video}
           
           {block:Photo}
             <div class="m-entry__photo-container">

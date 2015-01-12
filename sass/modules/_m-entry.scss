@@ -266,3 +266,9 @@ $m : '.m-entry';
     max-height: 100vh;
   }
 }
+
+#{$m}__embed {
+  @include scale-element;
+  font-size: 0;
+  width: 100%;
+}
