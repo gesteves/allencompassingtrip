@@ -152,6 +152,14 @@ $m : '.m-entry';
   content: "• Source ";
 }
 
+#{$m}__reblog-source:before {
+  content: "• Reblogged from ";
+}
+
+#{$m}submissions-source:before {
+  content: "• Submitted by ";
+}
+
 #{$m}__main-quote {
   margin: 0;
   padding: 0;

@@ -215,6 +215,16 @@
                     {SourceTitle}
                   </a>
                 {/block:ContentSource}
+                {block:RebloggedFrom}
+                  <a href="{ReblogParentURL}" class="m-entry__reblog-source">
+                    {ReblogParentName}
+                  </a>
+                {/block:RebloggedFrom}
+                {block:Submission}
+                  <a href="{SubmitterURL}" class="m-entry__submission-source">
+                    {Submitter}
+                  </a>
+                {/block:Submission}
                 {block:Photo}
                   {block:Exif}
                     <span class="m-exif">
