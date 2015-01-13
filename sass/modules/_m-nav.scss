@@ -14,17 +14,16 @@ $m : '.m-nav';
   }
   li {
     display: inline-block;
-    &:first-child a:before {
+    &:first-child:before {
       display: none;
+    }
+    &:before {
+      content: '•';
+      display: inline-block;
     }
   }
   a {
-    display: block;
+    display: inline-block;
     padding: 0 0.5rem;
-    &:before {
-      content: '•';
-      left: -0.5rem;
-      position: relative;
-    }
   }
 }

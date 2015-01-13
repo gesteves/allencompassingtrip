@@ -12,15 +12,15 @@ $bp-max                     : 1280px;
 $color-links                : #bf0222;
 
 // Light theme
+$theme-light-background     : #fff;
+$theme-light-background-alt : shade($theme-light-background, 2%);
 $theme-light-text           : #333;
 $theme-light-text-alt       : #999;
 $theme-light-border         : #eee;
-$theme-light-background     : #fff;
-$theme-light-background-alt : shade($theme-light-background, 2%);
 
 // Dark theme
-$theme-dark-text            : #eee;
-$theme-dark-text-alt        : #999;
-$theme-dark-border          : #111;
 $theme-dark-background      : #000;
 $theme-dark-background-alt  : tint($theme-dark-background, 5%);
+$theme-dark-text            : #eee;
+$theme-dark-text-alt        : #999;
+$theme-dark-border          : tint($theme-dark-background, 10%);
