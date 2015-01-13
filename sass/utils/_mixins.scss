@@ -17,6 +17,7 @@
       color: $text-color;
     }
   }
+  .m-nav,
   .m-tags {
     color: $alt-color;
     a[rel="tag"]:before {
@@ -46,6 +47,7 @@
   .m-entry__source:before {
     color: $alt-color;
   }
+  .m-nav,
   .m-entry.answer .m-entry__body,
   .m-entry table tr,
   .m-notes .notes,

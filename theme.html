@@ -91,6 +91,16 @@
       <header class="m-header">
         <h1><a href="/">{title}</a></h1>
         <h2>{Description}</h2>
+        <nav class="m-nav">
+          <ul>
+            {block:HasPages}
+              {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+            {/block:HasPages}
+            {block:AskEnabled}<li><a href="/ask">{AskLabel}</a></a>{/block:AskEnabled}
+            <li><a href="/archive" rel="archives">Archive</a></li>
+            <li><a href="/" id="toggle-theme">Toggle colors</a></li>
+          </ul>
+        </nav>
       </header>
 
       {block:NoSearchResults}
@@ -293,16 +303,8 @@
             {block:ifAuthorName}
               {block:ifAuthorWebsite}<a href="{text:Author Website}" rel="me">{/block:ifAuthorWebsite}
                 {text:Author Name}
-              {block:ifAuthorWebsite}</a>{/block:ifAuthorWebsite} &bull;
+              {block:ifAuthorWebsite}</a>{/block:ifAuthorWebsite}
             {/block:ifAuthorName}
-            {block:HasPages}
-              {block:Pages}<a href="{URL}">{Label}</a> &bull; {/block:Pages}
-            {/block:HasPages}
-            {block:AskEnabled}<a href="/ask">{AskLabel}</a> &bull;{/block:AskEnabled}
-            <a href="/archive" rel="archives">Archive</a> &bull;
-            <a href="/random">Random</a> &bull;
-            <a href="{RSS}">RSS</a> &bull;
-            <a href="/" id="toggle-theme">Toggle colors</a>
           </p>
         </div>
       </footer>
