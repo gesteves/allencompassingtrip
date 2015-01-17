@@ -76,7 +76,7 @@
     <meta property="og:locale" content="en_US" />
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
     {block:ifS3Bucket}
-      <link href="{text:S3 Bucket}/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
+      <link href="//{text:S3 Bucket}.s3.amazonaws.com/stylesheets/main.css" media="all" rel="stylesheet" type="text/css" />
     {/block:ifS3Bucket}
     <style type="text/css">
       {CustomCSS}
@@ -311,7 +311,7 @@
       </footer>
     </div>
     {block:ifS3Bucket}
-      <script src="{text:S3 Bucket}/js/main.min.js"></script>
+      <script src="//{text:S3 Bucket}.s3.amazonaws.com/js/main.min.js"></script>
     {/block:ifS3Bucket}
   </body>
 </html>
