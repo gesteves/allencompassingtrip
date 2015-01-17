@@ -4,17 +4,17 @@ var AET = AET || {};
 
 AET.Themes = (function ($) {
   var opts = {
-    toggle : $('#toggle-theme')
+    toggle : $('.js-theme-toggle')
   };
 
   var $html = $('html');
 
   var toggleTheme = function () {
-    $html.toggleClass('light dark');
-    if ($html.hasClass('light')) {
-      $.cookie('theme', 'light', { path: '/'});
+    $html.toggleClass('theme-light theme-dark');
+    if ($html.hasClass('theme-light')) {
+      $.cookie('theme', 'theme-light', { path: '/'});
     } else {
-      $.cookie('theme', 'dark', { path: '/'});
+      $.cookie('theme', 'theme-dark', { path: '/'});
     }
     return false;
   };
@@ -24,7 +24,7 @@ AET.Themes = (function ($) {
     opts.toggle.on('click', toggleTheme);
 
     if (typeof theme !== 'undefined') {
-      $html.removeClass('light dark').addClass(theme);
+      $html.removeClass('theme-light theme-dark').addClass(theme);
     }
   };
 
