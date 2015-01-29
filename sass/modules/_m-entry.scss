@@ -277,7 +277,7 @@ $m : '.m-entry';
 
 #{$m}__photo {
   display: inline-block;
-  max-width: 100%;
+  max-width: $bp-max;
   &.fit-window {
     max-height: 100vh;
   }
