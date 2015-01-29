@@ -250,7 +250,7 @@ $m : '.m-entry';
 }
 
 #{$m}.photo {
-  max-width: 100%;
+  max-width: $bp-max;
   padding: 0;
   #{$m}__body {
     padding: 0 2rem;
@@ -277,7 +277,7 @@ $m : '.m-entry';
 
 #{$m}__photo {
   display: inline-block;
-  max-width: $bp-max;
+  max-width: 100%;
   &.fit-window {
     max-height: 100vh;
   }
