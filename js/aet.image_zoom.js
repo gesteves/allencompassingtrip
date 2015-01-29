@@ -10,7 +10,6 @@ AET.ImageZoom = (function ($) {
     permalink_class : 'is-permalink'
   };
 
-  var $html = $('html');
   var $window = $(window);
 
   var toggleZoom = function () {
@@ -21,12 +20,11 @@ AET.ImageZoom = (function ($) {
 
   var init = function () {
     opts.toggle.each(function () {
-      var $link = $(this);
-      var $image = $link.find('img').first();
+      var $image = $(this);
       var width = parseInt($image.data('width'), 10);
       var height = parseInt($image.data('height'), 10);
-      if ($html.hasClass(opts.permalink_class) && width <= $window.width() && height > $window.height()) {
-       $link.addClass(opts.zoomable_class);
+      if (width <= $window.width() && height > $window.height()) {
+       $image.addClass(opts.zoomable_class);
       }
     });
     $('.' + opts.zoomable_class).on('click', toggleZoom);

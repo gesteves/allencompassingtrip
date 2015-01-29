@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light {block:Permalink}is-permalink{/block:Permalink}">
+<html lang="en" class="theme-light">
   <head>
     <!-- Tumblr theme variables -->
     <meta name="if:Show Notes" content="0" />
@@ -160,9 +160,14 @@
 
           {block:Photo}
             <div class="m-entry__photo-container">
-              <a href="{Permalink}" class="js-image-zoom fit-window">
-                <img data-width="{PhotoWidth-1280}" data-height="{PhotoWidth-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-              </a>
+              {block:IndexPage}
+                <a href="{Permalink}">
+                  <img data-width="{PhotoWidth-1280}" data-height="{PhotoHeight-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo fit-window" />
+                </a>
+              {/block:IndexPage}
+              {block:Permalink}
+                <img data-width="{PhotoWidth-1280}" data-height="{PhotoHeight-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo fit-window js-image-zoom" />
+              {/block:Permalink}
             </div>
             <div class="m-entry__body">
               {Caption}
@@ -172,9 +177,14 @@
           {block:Photoset}
             {block:Photos}
               <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
-                <a href="{Permalink}" class="js-image-zoom fit-window">
-                  <img data-width="{PhotoWidth-1280}" data-height="{PhotoWidth-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
-                </a>
+                {block:IndexPage}
+                  <a href="{Permalink}">
+                    <img data-width="{PhotoWidth-1280}" data-height="{PhotoHeight-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo fit-window" />
+                  </a>
+                {/block:IndexPage}
+                {block:Permalink}
+                  <img data-width="{PhotoWidth-1280}" data-height="{PhotoHeight-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo fit-window js-image-zoom" />
+                {/block:Permalink}
               </div>
               {block:Caption} 
                 <div class="m-entry__body caption">

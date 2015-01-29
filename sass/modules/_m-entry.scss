@@ -270,12 +270,6 @@ $m : '.m-entry';
     margin: 0;
     padding: 0;
   }
-  .is-permalink & a.is-zoomable {
-    cursor: zoom-out;
-  }
-  .is-permalink & a.is-zoomable.fit-window {
-    cursor: zoom-in;
-  }
   &.has-caption {
     margin-bottom: 0;
   }
@@ -284,8 +278,14 @@ $m : '.m-entry';
 #{$m}__photo {
   display: inline-block;
   max-width: 100%;
-  .fit-window > & {
+  &.fit-window {
     max-height: 100vh;
+  }
+  &.is-zoomable {
+    cursor: zoom-out;
+  }
+  &.is-zoomable.fit-window {
+    cursor: zoom-in;
   }
 }
 
