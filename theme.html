@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-light">
+<html lang="en" class="theme-light {block:Permalink}is-permalink{/block:Permalink}">
   <head>
     <!-- Tumblr theme variables -->
-    <meta name="select:Photo Size" content="full-size" title="Full size"/ >
-    <meta name="select:Photo Size" content="fit-window" title="Fit in window" />
     <meta name="if:Show Notes" content="0" />
     <!-- End Tumblr theme variables -->
     <script>
@@ -162,8 +160,8 @@
 
           {block:Photo}
             <div class="m-entry__photo-container">
-              <a href="{Permalink}">
-                <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
+              <a href="{Permalink}" class="js-image-zoom fit-window">
+                <img data-width="{PhotoWidth-1280}" data-height="{PhotoWidth-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w, {PhotoURL-100} {PhotoWidth-100}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
               </a>
             </div>
             <div class="m-entry__body">
@@ -174,8 +172,8 @@
           {block:Photoset}
             {block:Photos}
               <div class="m-entry__photo-container {block:Caption}has-caption{/block:Caption} ">
-                <a href="{Permalink}">
-                  <img src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo {select:Photo Size}" />
+                <a href="{Permalink}" class="js-image-zoom fit-window">
+                  <img data-width="{PhotoWidth-1280}" data-height="{PhotoWidth-1280}" src="{PhotoURL-HighRes}" srcset="{PhotoURL-1280} {PhotoWidth-1280}w, {PhotoURL-500} {PhotoWidth-500}w, {PhotoURL-400} {PhotoWidth-400}w, {PhotoURL-250} {PhotoWidth-250}w" sizes="(min-width: 1280px) 1280px, 100vw" alt="{PhotoAlt}" class="m-entry__photo" />
                 </a>
               </div>
               {block:Caption} 
